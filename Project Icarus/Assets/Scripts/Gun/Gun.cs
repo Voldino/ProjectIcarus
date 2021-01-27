@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject bullet;
-    private int _pattern = 0 ;
+    public int _pattern = 0 ;
     private Transform muzzleTransform;
     private float damage;
     

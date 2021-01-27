@@ -18,6 +18,10 @@ public class Pattern : MonoBehaviour
 
     public IEnumerator startP1(Transform muzzleTransform,GameObject bullet,int numberOfBullet)
     {
+        Transform playerTransform = GameObject.Find("Player").gameObject.transform;
+        Vector2 _playerDir = new Vector2(playerTransform.position.x - muzzleTransform.position.x,
+                                        playerTransform.position.y - muzzleTransform.position.y
+                                        );
 
         float startAngle = 180f;
         float endAngle = 180f;
@@ -29,8 +33,8 @@ public class Pattern : MonoBehaviour
 
         for (int i = 0; i < numberOfBullet; i++) 
         {
-            DirX = muzzleTransform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
-            DirY = muzzleTransform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+            DirX = muzzleTransform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f) + _playerDir.x + Mathf.Sin((angle * Mathf.PI) / 180f); ;
+            DirY = muzzleTransform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f) + _playerDir.y + Mathf.Sin((angle * Mathf.PI) / 180f); ;
 
             Vector3 Dir = new Vector3(DirX, DirY,0);
             Vector2 bulDir = (Dir - muzzleTransform.position).normalized;

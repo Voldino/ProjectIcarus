@@ -24,7 +24,9 @@ public class Bullet : MonoBehaviour
         Vector2 _playerDir = new Vector2(playerTransform.position.x - muzzleTransform.position.x,
                                         playerTransform.position.y - muzzleTransform.position.y  
                                          );
-        moveDirection = _moveDirection    ; 
+        moveDirection = _moveDirection ; 
     }
- 
+
+
+
 }
