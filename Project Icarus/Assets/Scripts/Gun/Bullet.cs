@@ -13,12 +13,18 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(moveDirection * Time.deltaTime*5f); 
+
+        transform.Translate( moveDirection   * Time.deltaTime*5f); 
     }
 
-    public void newDirection(Vector2 _moveDirection)
+    public void newDirection(Vector2 _moveDirection, Transform muzzleTransform)
     {
-        moveDirection = _moveDirection; 
+
+        Transform playerTransform = GameObject.Find("Player").gameObject.transform;
+        Vector2 _playerDir = new Vector2(playerTransform.position.x - muzzleTransform.position.x,
+                                        playerTransform.position.y - muzzleTransform.position.y  
+                                         );
+        moveDirection = _moveDirection    ; 
     }
  
 }

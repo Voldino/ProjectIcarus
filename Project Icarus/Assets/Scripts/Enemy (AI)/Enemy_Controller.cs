@@ -17,7 +17,7 @@ public class Enemy_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
+        lookAtPlayer(); 
     }
 
     private void lookAtPlayer()
