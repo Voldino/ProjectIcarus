@@ -36,21 +36,22 @@ public class Enemy_Controller : MonoBehaviour
 
     private void towardPlayer()
     {
-        state = StateMachine.MOVING; 
+        state = StateMachine.MOVING;
 
-        Transform playerTransform = GameObject.Find("Player").gameObject.transform;
+        Transform playerTransform = GameObject.FindObjectOfType<PlayerController>().gameObject.transform;
 
-        Ray ray = new Ray(transform.position, (playerTransform.position - transform.position));
-        RaycastHit hit; 
-        if (Physics.Raycast(ray,out hit, Mathf.Infinity, mask))
+        Ray2D ray = new Ray2D(transform.position, (playerTransform.position - transform.position));
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, (playerTransform.position - transform.position)) ;
+        if (hit2D)
         {
             Debug.DrawLine(transform.position, playerTransform.position, Color.green);
 
-            float distance = hit.distance;
-            print("" + distance);
+            float distance = hit2D.distance;
+            //print("" + distance);
 
             if (distance > 5) gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, playerTransform.position, 3.0f * Time.deltaTime);
         }
+        else Debug.DrawLine(transform.position, playerTransform.position, Color.red); 
 
         state = StateMachine.IDLE;  
          

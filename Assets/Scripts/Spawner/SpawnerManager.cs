@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class SpawnerManager : MonoBehaviour
 {
-    public enum stateMachine {SPAWNING,WAITING};
-    private stateMachine state = stateMachine.SPAWNING;  
-    private List<Enemy> currentEnemies;
-    private List<Enemy> template_enemy; 
+    [SerializeField] private List<Ship> ship_list ;
+    [SerializeField] private List<Spawner> spawner_list;
 
+    public static List<Ship> activeShip = new List<Ship>();  //When ship destroyed, it will be removed from activeShip by itself in Ship.cs 
     void Start()
     {
         
@@ -17,15 +16,19 @@ public class SpawnerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentEnemies.Count <= 0 && state != stateMachine.SPAWNING)
+        print(activeShip.Count);
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            state = stateMachine.SPAWNING;
-            Next();  
+            foreach (Spawner spawner in spawner_list)
+            {
+                if (Random.Range(1, 4) == 1)
+                {
+                    spawner.spawn(ship_list[Random.Range(0, ship_list.Count)]);
+                }
+            }
         }
+
     }
-    
-    private void Next()
-    {
-        
-    }
+
+
 }

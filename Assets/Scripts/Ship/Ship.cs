@@ -15,13 +15,12 @@ public class Ship : MonoBehaviour
     }
     private void Update()
     {
-        if (HP <= 0) DestroyShip(); 
-
-
+        if (HP <= 0) DestroyShip();
     }
 
     private void DestroyShip()
     {
+        SpawnerManager.activeShip.Remove(this); 
         Destroy(gameObject);  
     }
 
