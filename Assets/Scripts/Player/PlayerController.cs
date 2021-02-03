@@ -39,6 +39,11 @@ public class PlayerController : MonoBehaviour
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         _verticalInput = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Shoot");
+        }
     }
 
     private void RotatePlayer()
@@ -52,40 +57,4 @@ public class PlayerController : MonoBehaviour
         rb.velocity = transform.up * Mathf.Clamp01(_verticalInput) * movementSpeed;
     }
 
-
-    /*void handleMovement()
-    {
-       Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-       moveVelocity = moveInput * movementSpeed;
-       gameObject.transform.Translate(moveVelocity * Time.deltaTime);
-
-       if (Input.GetKeyDown(KeyCode.Q)) 
-       {
-           gameObject.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z + 5) * rotateSpeed);
-
-       }
-
-       if (Input.GetKeyDown(KeyCode.E))
-       {
-           gameObject.transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z - 5) * rotateSpeed);
-       }
-
-       horizontalInput = Input.GetAxis("Horizontal");
-       verticalInput = Input.GetAxis("Vertical");
-    }
-
-    void rotate()
-    {
-        Vector3 mousePosition = Input.mousePosition;
-
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-        Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-
-        transform.up = direction;
-
-
-        float rotation = horizontalInput * rotateSpeed;
-        transform.Rotate(Vector3.forward * rotation);
-    }*/
 }
