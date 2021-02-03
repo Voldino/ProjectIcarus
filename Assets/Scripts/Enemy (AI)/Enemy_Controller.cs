@@ -9,11 +9,14 @@ public class Enemy_Controller : MonoBehaviour
 
     [SerializeField] private LayerMask mask; 
     [SerializeField] private GameObject playerGameObejct;
+
+    private float HP = 1;
  
 
     // Start is called before the first frame update
     void Start()
     {
+        playerGameObejct = GameObject.FindObjectOfType<PlayerController>().gameObject;
     }
 
     // Update is called once per frame
@@ -55,6 +58,11 @@ public class Enemy_Controller : MonoBehaviour
 
         state = StateMachine.IDLE;  
          
+    }
+
+    public void Hit(float damage)
+    {
+        HP -= damage; 
     }
 
 

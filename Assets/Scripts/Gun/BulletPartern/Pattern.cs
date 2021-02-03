@@ -7,16 +7,16 @@ public class Pattern : MonoBehaviour
  
 
     // Update is called once per frame
-    public void startPattern(Transform muzzleTransform, GameObject bullet, int numberOfBullet,int _pattern)
+    public void startPattern(Transform muzzleTransform, float damage,GameObject bullet, int numberOfBullet,int _pattern)
     {
         switch (_pattern)
         {
-            case 1: StartCoroutine(startP1(muzzleTransform,bullet,numberOfBullet)); break;
-            case 2: StartCoroutine(startP2(muzzleTransform,bullet,numberOfBullet)); break;
+            case 1: StartCoroutine(startP1(muzzleTransform,damage,bullet,numberOfBullet)); break;
+            case 2: StartCoroutine(startP2(muzzleTransform,damage,bullet,numberOfBullet)); break;
         }
     }
 
-    public IEnumerator startP1(Transform muzzleTransform,GameObject bullet,int numberOfBullet)
+    public IEnumerator startP1(Transform muzzleTransform,float damage,GameObject bullet,int numberOfBullet)
     {
         Transform playerTransform = GameObject.Find("Player").gameObject.transform;
         Vector2 _playerDir = new Vector2(playerTransform.position.x - muzzleTransform.position.x,
@@ -41,6 +41,7 @@ public class Pattern : MonoBehaviour
 
             GameObject bul = Instantiate(bullet, muzzleTransform.transform.position, bullet.transform.rotation);
             bul.GetComponent<Bullet>().newDirection(bulDir,muzzleTransform);
+            bul.GetComponent<Bullet>().setDamage(damage); 
 
             angle += step;
             yield return new WaitForSeconds(0.1f);
@@ -48,7 +49,7 @@ public class Pattern : MonoBehaviour
 
     }
 
-    public IEnumerator startP2(Transform muzzleTransform, GameObject bullet,int numberOfBullet)
+    public IEnumerator startP2(Transform muzzleTransform,float damage, GameObject bullet,int numberOfBullet)
     {
         Transform playerTransform = GameObject.Find("Player").gameObject.transform;
         Vector2 _playerDir = new Vector2(playerTransform.position.x - muzzleTransform.position.x,
@@ -73,6 +74,7 @@ public class Pattern : MonoBehaviour
 
             GameObject bul = Instantiate(bullet, muzzleTransform.transform.position, bullet.transform.rotation);
             bul.GetComponent<Bullet>().newDirection(bulDir,muzzleTransform);
+            bul.GetComponent<Bullet>().setDamage(damage);
 
             angle += step;
             yield return new WaitForSeconds(0f);

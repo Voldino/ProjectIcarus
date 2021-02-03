@@ -17,7 +17,7 @@ public class SpawnerManager : MonoBehaviour
     void Update()
     {
         print(activeShip.Count);
-        if (Input.GetKeyDown(KeyCode.R))
+        if (activeShip.Count <= 0  || Input.GetKeyDown(KeyCode.P)) //after wave end 
         {
             foreach (Spawner spawner in spawner_list)
             {

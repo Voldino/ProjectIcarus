@@ -5,28 +5,34 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject bullet;
-    public int _pattern = 0 ;
     private Transform muzzleTransform;
-    private float damage;
-    
-    private float delay;  
+
+    private float delayCountdown;
+
+    [HideInInspector] public float delayTime;
+    [HideInInspector] public float  damage;
+    [HideInInspector] public int pattern = 0;
+
+
+
+
     private void Start()
     {
         muzzleTransform = gameObject.transform.Find("Muzzle"); 
     }
     private void Update()
     {
-        Shoot();
-        delay -= Time.deltaTime * 1;
+        Shoot(); 
+        delayCountdown -= Time.deltaTime * 1;
     }
 
     private void Shoot()
     {
-        if (delay <= 0)
+        if (delayCountdown <= 0)
         {
-            if (_pattern == 0) _pattern = 1; 
-            gameObject.GetComponent<Pattern>().startPattern(muzzleTransform,bullet,5,_pattern);
-            delay = 1f;
+            if (pattern == 0) pattern = 1; 
+            gameObject.GetComponent<Pattern>().startPattern(muzzleTransform,damage,bullet,5,pattern);
+            delayCountdown = delayTime ;
         }
     }
 }
