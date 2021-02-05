@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private float HP = 1;
+    private float attack = 1;
+    private float speed = 3; 
     void Start()
     {
         
@@ -14,5 +16,25 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Hit(float damage)
+    {
+        HP -= damage;
+    }
+
+    public float getSpeed()
+    {
+        return speed; 
+    }
+
+    public float getAttack()
+    {
+        return attack; 
+    }
+
+    public float getHP()
+    {
+        return HP; 
     }
 }

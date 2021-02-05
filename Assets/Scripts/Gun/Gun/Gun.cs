@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pattern : MonoBehaviour
+public class Gun : MonoBehaviour
 {
  
 

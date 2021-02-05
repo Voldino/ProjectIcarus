@@ -40,9 +40,9 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>())
         {
 
-        }else if (collision.gameObject.GetComponent<Enemy_Controller>())
+        }else if (collision.gameObject.GetComponent<Enemy>())
         {
-            gameObject.GetComponent<Enemy_Controller>().Hit(damage);
+            gameObject.GetComponent<Enemy>().Hit(damage);
         }
     }
 

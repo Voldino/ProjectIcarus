@@ -10,13 +10,19 @@ public class Enemy_Controller : MonoBehaviour
     [SerializeField] private LayerMask mask; 
     [SerializeField] private GameObject playerGameObejct;
 
-    private float HP = 1;
+    private Vector3 destination;
+
+    private Enemy enemy ;
  
 
     // Start is called before the first frame update
     void Start()
     {
         playerGameObejct = GameObject.FindObjectOfType<PlayerController>().gameObject;
+        destination = new Vector3(Random.Range(0, 4), Random.Range(0, 4), 0);
+        enemy = GetComponent<Enemy>(); 
+
+        //destination = playerGameObejct.transform.position + destination; 
     }
 
     // Update is called once per frame
@@ -39,6 +45,7 @@ public class Enemy_Controller : MonoBehaviour
 
     private void towardPlayer()
     {
+        destination = playerGameObejct.transform.position - destination; 
         state = StateMachine.MOVING;
 
         Transform playerTransform = GameObject.FindObjectOfType<PlayerController>().gameObject.transform;
@@ -52,7 +59,10 @@ public class Enemy_Controller : MonoBehaviour
             float distance = hit2D.distance;
             //print("" + distance);
 
-            if (distance > 5) gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, playerTransform.position, 3.0f * Time.deltaTime);
+            if (distance > 0)
+            {
+                gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, destination,enemy.getSpeed() * Time.deltaTime);
+            }
         }
         else Debug.DrawLine(transform.position, playerTransform.position, Color.red); 
 
@@ -60,10 +70,7 @@ public class Enemy_Controller : MonoBehaviour
          
     }
 
-    public void Hit(float damage)
-    {
-        HP -= damage; 
-    }
+
 
 
 

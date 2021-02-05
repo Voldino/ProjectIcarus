@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class GunController : MonoBehaviour
 {
     public GameObject bullet;
     private Transform muzzleTransform;
@@ -31,7 +31,7 @@ public class Gun : MonoBehaviour
         if (delayCountdown <= 0)
         {
             if (pattern == 0) pattern = 1; 
-            gameObject.GetComponent<Pattern>().startPattern(muzzleTransform,damage,bullet,5,pattern);
+            gameObject.GetComponent<Gun>().startPattern(muzzleTransform,damage,bullet,5,pattern);
             delayCountdown = delayTime ;
         }
     }
