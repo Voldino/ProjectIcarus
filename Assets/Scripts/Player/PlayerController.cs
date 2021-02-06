@@ -7,54 +7,29 @@ public class PlayerController : MonoBehaviour
     private enum StateMachine { IDLE, ATTACK, MOVE };
     private StateMachine state = StateMachine.IDLE;
 
-    public int movementSpeed = 0;
-    public int rotationSpeed = 0;
-
-    private float _verticalInput = 0;
-    private float _horizontalInput = 0;
-
-    private Rigidbody2D rb;
-
-    //private Vector2 moveVelocity;
+    public float maxSpeed = 10f;
+    public float rotSpeed = 180f;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
     {
-        GetPlayerInput();
+        //Rotating the ship
+        Quaternion rot = transform.rotation;
+        float z = rot.eulerAngles.z;
+        z -= Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
+        rot = Quaternion.Euler(0, 0, z);
+        transform.rotation = rot;
 
+        //Moving the ship
+        Vector3 pos = transform.position;
+        Vector3 velocity = new Vector3(0, Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime, 0);
+        pos += rot * velocity;
+        transform.position = pos;
     }
 
-    private void FixedUpdate()
-    {
-
-        RotatePlayer();
-        MovePlayer();
-    }
-
-    private void GetPlayerInput()
-    {
-        _horizontalInput = Input.GetAxisRaw("Horizontal");
-        _verticalInput = Input.GetAxisRaw("Vertical");
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Shoot");
-        }
-    }
-
-    private void RotatePlayer()
-    {
-        float rotation = -_horizontalInput * rotationSpeed;
-        transform.Rotate(Vector3.forward * rotation);
-    }
-
-    private void MovePlayer()
-    {
-        rb.velocity = transform.up * Mathf.Clamp01(_verticalInput) * movementSpeed;
-    }
 
 }
