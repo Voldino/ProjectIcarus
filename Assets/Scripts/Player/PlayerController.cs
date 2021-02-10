@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = new Vector3(0, Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime, 0);
         pos += rot * velocity;
         transform.position = pos;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Shoot");
+        }
     }
 
 
