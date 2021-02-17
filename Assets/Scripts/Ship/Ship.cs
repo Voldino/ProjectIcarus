@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
-    public int HP = 1;
+    public float HP = 1;
     public float Arrmor = 0;
     public float Speed = 1;
-    public Transform muzzle;
+    public int pattern = -1;
+    public float bulletSpeed = 1.0f;
+    public float delayTime = 0f;
+    public float damage = 1f;
+
+    [HideInInspector] public Transform muzzle;
 
     private void Start()
     {
-        muzzle = transform.Find("Muzzle").transform;
+
     }
     private void Update()
     {
@@ -24,8 +29,29 @@ public class Ship : MonoBehaviour
         Destroy(gameObject);  
     }
 
+    public void attachMuzzle(Transform muzzle)
+    {
+        this.muzzle = muzzle;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        //if collider is bullet 
+         
+    }
+
+    public void Hit(float damage)
+    {
+        HP -= damage;
+    }
+
+
+    public float getDaleyTime()
+    {
+        return delayTime; 
+    }
+
+    public float getDamage()
+    {
+        return damage;
     }
 }

@@ -11,8 +11,6 @@ public class Enemy_Controller : MonoBehaviour
     [SerializeField] private GameObject playerGameObejct;
 
     private Vector3 destination;
-
-    private Enemy enemy ;
  
 
     // Start is called before the first frame update
@@ -20,8 +18,7 @@ public class Enemy_Controller : MonoBehaviour
     {
         playerGameObejct = GameObject.FindObjectOfType<PlayerController>().gameObject;
         destination = new Vector3(Random.Range(0, 4), Random.Range(0, 4), 0);
-        enemy = GetComponent<Enemy>(); 
-
+        GetComponent<Ship>().attachMuzzle(gameObject.transform.Find("Muzzle"));
         //destination = playerGameObejct.transform.position + destination; 
     }
 
@@ -52,16 +49,15 @@ public class Enemy_Controller : MonoBehaviour
 
         Ray2D ray = new Ray2D(transform.position, (playerTransform.position - transform.position));
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, (playerTransform.position - transform.position)) ;
-        if (hit2D)
+        if (hit2D.collider.GetComponent<PlayerController>())
         {
             Debug.DrawLine(transform.position, playerTransform.position, Color.green);
 
             float distance = hit2D.distance;
-            //print("" + distance);
 
             if (distance > 0)
             {
-                gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, destination,enemy.getSpeed() * Time.deltaTime);
+                gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, destination,gameObject.GetComponent<Ship>().Speed * Time.deltaTime);
             }
         }
         else Debug.DrawLine(transform.position, playerTransform.position, Color.red); 

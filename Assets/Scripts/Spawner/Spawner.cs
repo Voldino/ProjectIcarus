@@ -18,11 +18,12 @@ public class Spawner : MonoBehaviour
     {
         Ship _ship = Instantiate(ship, transform.position, ship.gameObject.transform.rotation);
         GunController _gun = _ship.GetComponent<GunController>();
-
-        _gun.pattern = Random.Range(1, 3);
-        _gun.delayTime = 2.0f;
-        _gun.damage = 1; 
-
+        if (_gun)
+        {
+            if (_ship.pattern == -1) _gun.pattern = Random.Range(1, 3);
+            _gun.setDelayTime(_ship.getDaleyTime());
+            _gun.setDamage(_ship.getDamage());
+        }
         SpawnerManager.activeShip.Add(_ship); 
     }
 }

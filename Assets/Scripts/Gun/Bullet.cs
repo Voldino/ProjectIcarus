@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Vector2 moveDirection;
+    [HideInInspector] Vector2 moveDirection;
+    [HideInInspector] public float speed = 1f;
     [HideInInspector] private float damage; 
     // Start is called before the first frame update
     void Start()
@@ -20,30 +21,34 @@ public class Bullet : MonoBehaviour
     void Update()
     {
 
-        transform.Translate( moveDirection   * Time.deltaTime*5f); 
+        transform.Translate( moveDirection   * Time.deltaTime * speed); 
     }
 
-    public void newDirection(Vector2 _moveDirection, Transform muzzleTransform)
+    public void newDirection(Vector2 _moveDirection)
     {
-
-        Transform playerTransform = GameObject.Find("Player").gameObject.transform;
-        Vector2 _playerDir = new Vector2(playerTransform.position.x - muzzleTransform.position.x,
-                                        playerTransform.position.y - muzzleTransform.position.y  
-                                         );
         moveDirection = _moveDirection ; 
     }
 
-    private void OnCollisionEnter(Collision collision)
+ 
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("X");
-
-        if (collision.gameObject.GetComponent<PlayerController>())
+        if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
 
-        }else if (collision.gameObject.GetComponent<Enemy>())
-        {
-            gameObject.GetComponent<Enemy>().Hit(damage);
         }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gameObject.GetComponent<Ship>().Hit(damage);
+        }
+
+        Destroy(gameObject);
+
+    }
+
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
 
