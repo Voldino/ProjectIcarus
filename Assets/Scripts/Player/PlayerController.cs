@@ -7,33 +7,52 @@ public class PlayerController : MonoBehaviour
     private enum StateMachine { IDLE, ATTACK, MOVE };
     private StateMachine state = StateMachine.IDLE;
 
-    public float maxSpeed = 10f;
-    public float rotSpeed = 180f;
+    public float verticalInputAcceleration = 1;
+    public float horizontalInputAcceleration = 20;
 
-    private void Start()
+    public float maxSpeed = 10;
+    public float maxRotationSpeed = 100;
+
+    public float velocityDrag = 1;
+    public float rotationDrag = 1;
+
+    private Vector3 velocity;
+    private float zRotationVelocity;
+
+    private void Update()
     {
+        if (Input.GetAxisRaw("Vertical") == 1) {
+            Impulse();
+        }
 
+        // apply turn input
+        float zTurnAcceleration = -1 * Input.GetAxis("Horizontal") * horizontalInputAcceleration;
+        zRotationVelocity += zTurnAcceleration /** Time.deltaTime*/;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        //Rotating the ship
-        Quaternion rot = transform.rotation;
-        float z = rot.eulerAngles.z;
-        z -= Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
-        rot = Quaternion.Euler(0, 0, z);
-        transform.rotation = rot;
+        // apply velocity drag
+        velocity = velocity * (1 - Time.deltaTime * velocityDrag);
 
-        //Moving the ship
-        Vector3 pos = transform.position;
-        Vector3 velocity = new Vector3(0, Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime, 0);
-        pos += rot * velocity;
-        transform.position = pos;
+        // clamp to maxSpeed
+        velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Shoot");
-        }
+        // apply rotation drag
+        zRotationVelocity = zRotationVelocity * (1 - Time.deltaTime * rotationDrag);
+
+        // clamp to maxRotationSpeed
+        zRotationVelocity = Mathf.Clamp(zRotationVelocity, -maxRotationSpeed, maxRotationSpeed);
+
+        // update transform
+        transform.position += velocity * Time.deltaTime;
+        transform.Rotate(0, 0, zRotationVelocity * Time.deltaTime);
+    }
+
+    private void Impulse() {
+        // apply forward input
+        Vector3 acceleration = Input.GetAxis("Vertical") * verticalInputAcceleration * transform.up;
+        velocity += acceleration * Time.deltaTime;
     }
 
 
