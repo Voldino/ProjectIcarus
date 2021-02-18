@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class zig_zag : MonoBehaviour
+public class Asteroid : MonoBehaviour
 {
     private enum StateMachine { IDLE, ATTACKING, MOVING };
     private StateMachine state = StateMachine.IDLE;
-    private Vector2 levelCenter;
+    private Vector2 goTo;
     Vector2 moveDirection;
     private Vector2 lookDirection ; 
     private List<Vector2> directions; 
@@ -19,9 +19,10 @@ public class zig_zag : MonoBehaviour
 
     private void prepare()
     {
-        Vector2 playerPOS = (GameObject.FindObjectOfType<PlayerController>().gameObject.transform.position).normalized;
-        levelCenter = new Vector2(0, 0)
-;       moveDirection = (levelCenter - (Vector2) gameObject.transform.position).normalized; 
+        float scale = Random.Range(0.07f, 0.1f); 
+        gameObject.transform.localScale = new Vector3(scale,scale, 1);
+        goTo = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
+;       moveDirection = (goTo - (Vector2) gameObject.transform.position).normalized; 
         transform.up = moveDirection ;
     }
 

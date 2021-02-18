@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: -2627477060740476359}
   - component: {fileID: -5849812370398165818}
   m_Layer: 0
-  m_Name: 'Enemy Ship '
+  m_Name: NormalShip
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 8502462147289665563}
   m_LocalRotation: {x: -0, y: -0, z: -0.999999, w: -0.0014337258}
   m_LocalPosition: {x: -4.81, y: 3.79, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8502462147202605889}
   m_Father: {fileID: 0}
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 44408f26a177bc545b2fe627bb31e3de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ce17951ef1d6794aaf7f225e82ff3c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   HP: 1
   Arrmor: 0
   Speed: 1
-  pattern: 1
+  pattern: 0
   bulletSpeed: 1
   delayTime: 4
   damage: 1

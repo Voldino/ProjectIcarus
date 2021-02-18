@@ -48,7 +48,7 @@ public class Enemy_Controller : MonoBehaviour
         Transform playerTransform = GameObject.FindObjectOfType<PlayerController>().gameObject.transform;
 
         Ray2D ray = new Ray2D(transform.position, (playerTransform.position - transform.position));
-        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, (playerTransform.position - transform.position)) ;
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, (playerTransform.position - transform.position),Mathf.Infinity,mask) ;
         if (hit2D.collider.GetComponent<PlayerController>())
         {
             Debug.DrawLine(transform.position, playerTransform.position, Color.green);
