@@ -13,6 +13,9 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] private List<Spawner> leftSideSpawner;
     [SerializeField] private List<Spawner> aLLSpawner;
 
+    [SerializeField] private float spawnDelay = 1;
+    private float spawnCountDown = 0f; 
+
     private GameObject Portal; 
 
     public static List<Ship> activeShip = new List<Ship>();  //When ship destroyed, it will be removed from activeShip by itself in Ship.cs 
@@ -26,6 +29,9 @@ public class SpawnerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        spawnCountDown += 1 * Time.deltaTime; 
+        spawn();
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             openPortal();
@@ -34,51 +40,62 @@ public class SpawnerManager : MonoBehaviour
 
     }
 
-    public void nextPhase(int increasePhase)
+    public void nextPhase(int increasePhase) //Used for increaseing phase 
     {
+        print("Phase " + Phase);
         Phase += increasePhase;
-        foreach (Ship enemy_ship in activeShip) Destroy(enemy_ship.gameObject); 
-        spawn();    
+        foreach (Ship enemy_ship in activeShip)
+        {
+            if (enemy_ship) Destroy(enemy_ship.gameObject);
+        }
+
+        activeShip.Clear(); 
+
+           
     }
 
-    public void openPortal()
+    public void openPortal() //Portal will be opened (set active) 
     {
         Portal.SetActive(true);
     }
 
-    private void spawn()
+    private void spawn() //Spawn enemies randomly according to phase
     {
-        if (Phase == 2)
+        if (spawnCountDown >= spawnDelay || activeShip.Count == 0)
         {
-            foreach (Spawner spawner in rightSideSpawner)
+            spawnCountDown = 0f; 
+            if (Phase == 2)
             {
-                if (Random.Range(1, 4) == 1)
+                foreach (Spawner spawner in rightSideSpawner)
                 {
-                    spawner.spawn(ship_list[Random.Range(0, ship_list.Count)]);
+                    if (Random.Range(1, 4) == 1)
+                    {
+                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)]);
+                    }
                 }
             }
-        }
-        else if (Phase == 4)
-        {
-            foreach (Spawner spawner in topSideSpawner)
+            else if (Phase == 4)
             {
-                if (Random.Range(1, 4) == 1)
+                foreach (Spawner spawner in topSideSpawner)
                 {
-                    spawner.spawn(ship_list[Random.Range(0, ship_list.Count)]);
+                    if (Random.Range(1, 4) == 1)
+                    {
+                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)]);
+                    }
                 }
             }
-        }
-        else if (Phase == 3)
-        {
-            //spawn teasure
-        }
-        else
-        {
-            foreach (Spawner spawner in aLLSpawner)
+            else if (Phase == 3)
             {
-                if (Random.Range(1, 4) == 1)
+                //spawn teasure
+            }
+            else
+            {
+                foreach (Spawner spawner in aLLSpawner)
                 {
-                    spawner.spawn(ship_list[Random.Range(0, ship_list.Count)]);
+                    if (Random.Range(1, 4) == 1)
+                    {
+                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)]);
+                    }
                 }
             }
         }

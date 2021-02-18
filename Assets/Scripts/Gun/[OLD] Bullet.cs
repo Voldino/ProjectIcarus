@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bulwlet : MonoBehaviour
 {
     [HideInInspector] Vector2 moveDirection;
     [HideInInspector] public float speed = 1f;
