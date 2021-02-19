@@ -205,4 +205,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 0}
   bullets:
-  - {fileID: 4053337568684483028, guid: 96278f0b58665804aa1da589a6ea4c94, type: 3}
+  - {fileID: 5830072771674013278, guid: e3de3940c1aa59b48b0ea0868b8eab3e, type: 3}

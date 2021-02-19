@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
         // apply turn input
         float zTurnAcceleration = -1 * Input.GetAxis("Horizontal") * horizontalInputAcceleration;
         zRotationVelocity += zTurnAcceleration /** Time.deltaTime*/;
+
+        outOfBount(); 
     }
 
     private void FixedUpdate()
@@ -55,5 +57,14 @@ public class PlayerController : MonoBehaviour
         velocity += acceleration * Time.deltaTime;
     }
 
+    private void outOfBount()
+    {
+        float yBound = 5.35f, xBound = 9.10f;
+        if (transform.position.y > yBound) transform.position = new Vector2(transform.position.x, -transform.position.y + 0.1f); 
+        else if (transform.position.y < -yBound) transform.position = new Vector2(transform.position.x, -transform.position.y - 0.1f);
+        
+        if (transform.position.x > xBound) transform.position = new Vector2(-transform.position.x + 0.1f, transform.position.y);
+        else if (transform.position.x < -xBound) transform.position = new Vector2(-transform.position.x - 0.1f, transform.position.y);
+    }
 
 }

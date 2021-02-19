@@ -4,22 +4,10 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Shoot(GameObject bullet,Transform muzzleTransform,int pattern)
     {
         if (pattern == 0) pattern0(bullet, muzzleTransform,1);
-        else if (pattern == 1) pattern1(bullet, muzzleTransform,5); 
+        else if (pattern == 1) pattern1(bullet, muzzleTransform,3); 
     }
 
     private void pattern0(GameObject bullet, Transform muzzleTransform,int number_of_bullet)

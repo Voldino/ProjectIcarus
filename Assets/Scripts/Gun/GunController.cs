@@ -22,7 +22,7 @@ public class GunController : MonoBehaviour
     void Update()
     {
         countTime += 1 * Time.deltaTime; 
-        if (countTime >= delayTime)
+        if (countTime >= delayTime + Random.Range(-0.5f,0.5f))
         {
             countTime = 0; 
             Shoot(); 

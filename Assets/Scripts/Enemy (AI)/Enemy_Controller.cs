@@ -49,19 +49,21 @@ public class Enemy_Controller : MonoBehaviour
 
         Ray2D ray = new Ray2D(transform.position, (playerTransform.position - transform.position));
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, (playerTransform.position - transform.position),Mathf.Infinity,mask) ;
-        if (hit2D.collider.GetComponent<PlayerController>())
+        if (hit2D)
         {
-            Debug.DrawLine(transform.position, playerTransform.position, Color.green);
-
-            float distance = hit2D.distance;
-
-            if (distance > 0)
+            if (hit2D.collider.GetComponent<PlayerController>())
             {
-                gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, destination,gameObject.GetComponent<Ship>().Speed * Time.deltaTime);
-            }
-        }
-        else Debug.DrawLine(transform.position, playerTransform.position, Color.red); 
+                Debug.DrawLine(transform.position, playerTransform.position, Color.green);
 
+                float distance = hit2D.distance;
+
+                if (distance > 0)
+                {
+                    gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, destination, gameObject.GetComponent<Ship>().Speed * Time.deltaTime);
+                }
+            }
+            else Debug.DrawLine(transform.position, playerTransform.position, Color.red);
+        }
         state = StateMachine.IDLE;  
          
     }

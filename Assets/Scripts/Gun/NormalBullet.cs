@@ -5,7 +5,7 @@ using UnityEngine;
 public class NormalBullet : MonoBehaviour
 {
     private Rigidbody2D rb2D;
-    private float speed = 3f; 
+    [SerializeField] private float speed = 3f; 
 
     void Start()
     {
