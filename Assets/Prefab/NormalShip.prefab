@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 220473782513665713}
   - component: {fileID: -2627477060740476359}
   - component: {fileID: -5849812370398165818}
+  - component: {fileID: 8217217783001530529}
   m_Layer: 0
   m_Name: NormalShip
   m_TagString: Enemy
@@ -205,4 +206,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 0}
   bullets:
-  - {fileID: 5830072771674013278, guid: e3de3940c1aa59b48b0ea0868b8eab3e, type: 3}
+  - {fileID: 1249280145346630828, guid: 96278f0b58665804aa1da589a6ea4c94, type: 3}
+--- !u!50 &8217217783001530529
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502462147289665563}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

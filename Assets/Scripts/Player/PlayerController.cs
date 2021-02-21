@@ -29,7 +29,11 @@ public class PlayerController : MonoBehaviour
         float zTurnAcceleration = -1 * Input.GetAxis("Horizontal") * horizontalInputAcceleration;
         zRotationVelocity += zTurnAcceleration /** Time.deltaTime*/;
 
-        outOfBount(); 
+        outOfBount();
+        if (Input.GetKey(KeyCode.Space)) {
+            PlayerGunController playerGunController = GetComponent<PlayerGunController>();
+            playerGunController.Shoot(); 
+        }
     }
 
     private void FixedUpdate()
@@ -65,6 +69,12 @@ public class PlayerController : MonoBehaviour
         
         if (transform.position.x > xBound) transform.position = new Vector2(-transform.position.x + 0.1f, transform.position.y);
         else if (transform.position.x < -xBound) transform.position = new Vector2(-transform.position.x - 0.1f, transform.position.y);
+    }
+
+
+    public void Hit(float damage)
+    {
+        gameObject.GetComponent<Ship>().Hit(damage);
     }
 
 }

@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
         GunController _gun = _ship.GetComponent<GunController>();
         if (_gun)
         {
-            if (_ship.pattern == -1) _gun.setPattern(Random.Range(0, 2)); 
+            if (_ship.getPattern() == -1) _gun.setPattern(Random.Range(0, 2)); 
             _gun.setDelayTime(_ship.getDaleyTime());
             _gun.setDamage(_ship.getDamage());
         }

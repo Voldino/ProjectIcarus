@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
-    public float HP = 1;
-    public float Arrmor = 0;
-    public float Speed = 1;
-    public int pattern = -1;
-    public float bulletSpeed = 1.0f;
-    public float delayTime = 0f;
-    public float damage = 1f;
+    [SerializeField] private float HP = 1;
+    [SerializeField] private float Arrmor = 0;
+    [SerializeField] private float Speed = 1;
+    [SerializeField] private int pattern = -1;
+    [SerializeField] private float bulletSpeed = 1.0f;
+    [SerializeField] private float delayTime = 0f;
+    [SerializeField] private float damage = 1f;
 
     [HideInInspector] public Transform muzzle;
 
@@ -21,6 +21,7 @@ public class Ship : MonoBehaviour
     private void Update()
     {
         if (HP <= 0) DestroyShip();
+
     }
 
     private void DestroyShip()
@@ -44,14 +45,11 @@ public class Ship : MonoBehaviour
         HP -= damage;
     }
 
+    public int getPattern() {return pattern;}
 
-    public float getDaleyTime()
-    {
-        return delayTime; 
-    }
+    public float getDaleyTime() { return delayTime; }
 
-    public float getDamage()
-    {
-        return damage;
-    }
+    public float getDamage() { return damage; }
+
+    public float getSpeed() { return Speed; } 
 }

@@ -29,7 +29,7 @@ public class Asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += (Vector3) moveDirection.normalized * GetComponent<Ship>().Speed * Time.deltaTime;
+        transform.position += (Vector3) moveDirection.normalized * GetComponent<Ship>().getSpeed() * Time.deltaTime;
     }
 
 }

@@ -36,8 +36,14 @@ public class Enemy_Controller : MonoBehaviour
 
     private void lookAtPlayer()
     {
-        Vector2 direction = new Vector2(playerGameObejct.transform.position.x - transform.position.x,playerGameObejct.transform.position.y - transform.position.y);
-        transform.up = direction; 
+        float rotateSpeed = 200f; 
+        Vector2 direction = (Vector2) transform.position - (Vector2)playerGameObejct.transform.position ;
+        direction.Normalize();
+
+        float rotateAmount = Vector3.Cross(direction, transform.up).z;
+
+        GetComponent<Rigidbody2D>().angularVelocity = rotateAmount * rotateSpeed;
+
     }
 
     private void towardPlayer()
@@ -58,14 +64,18 @@ public class Enemy_Controller : MonoBehaviour
                 float distance = hit2D.distance;
 
                 if (distance > 0)
-                {
-                    gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, destination, gameObject.GetComponent<Ship>().Speed * Time.deltaTime);
+                { 
+                    gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, destination, gameObject.GetComponent<Ship>().getSpeed() * Time.deltaTime);
                 }
             }
             else Debug.DrawLine(transform.position, playerTransform.position, Color.red);
         }
-        state = StateMachine.IDLE;  
-         
+        state = StateMachine.IDLE;       
+    }
+
+    public void Hit(float damage)
+    {
+        gameObject.GetComponent<Ship>().Hit(damage);
     }
 
 

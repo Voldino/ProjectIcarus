@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public void Shoot(GameObject bullet,Transform muzzleTransform,int pattern)
+    public void Shoot(Bullet bullet,Transform muzzleTransform,int pattern)
     {
-        if (pattern == 0) pattern0(bullet, muzzleTransform,1);
-        else if (pattern == 1) pattern1(bullet, muzzleTransform,3); 
+        if (pattern == 0) pattern0(bullet, muzzleTransform);
+        else if (pattern == 1) pattern1(bullet, muzzleTransform); 
     }
 
-    private void pattern0(GameObject bullet, Transform muzzleTransform,int number_of_bullet)
+    private void pattern0(Bullet bullet, Transform muzzleTransform)
     {
-        for (int i = 0; i < number_of_bullet; i++) Instantiate(bullet, muzzleTransform.position, muzzleTransform.transform.rotation);
+        
+            Bullet newBullet = Instantiate(bullet, muzzleTransform.position, muzzleTransform.transform.rotation) ;
+            newBullet.setSender(Bullet.SENDER.ENEMY);
+            newBullet.setDamage(gameObject.GetComponent<Ship>().getDamage());
+
+        
     }
 
-    private void pattern1(GameObject bullet, Transform muzzleTransform, int number_of_bullet)
+    private void pattern1(Bullet bullet, Transform muzzleTransform)
     {
         float startAngle = 90.0f ;
         float endAngle = 270.0f  ;
-
+        int number_of_bullet = 5;
 
         Quaternion shootingQuaterrnion = muzzleTransform.transform.rotation; 
         float step = (endAngle - startAngle) / number_of_bullet;
@@ -31,7 +36,9 @@ public class Gun : MonoBehaviour
 
         for (int i = 0; i < number_of_bullet; i++)
         {
-            Instantiate(bullet, muzzleTransform.position, muzzleTransform.transform.rotation);
+            Bullet newBullet = Instantiate(bullet, muzzleTransform.position, muzzleTransform.transform.rotation);
+            newBullet.setSender(Bullet.SENDER.ENEMY);
+            newBullet.setDamage(gameObject.GetComponent<Ship>().getDamage());
 
             muzzleTransform.transform.Rotate(new Vector3(0, 0, step));
         }

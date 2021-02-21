@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     [SerializeField] private Transform muzzleTransform;
-    [SerializeField] private List<GameObject> bullets;
+    [SerializeField] private List<Bullet> bullets;
 
     private float delayTime ;
     private float countTime = 0;
@@ -31,12 +31,12 @@ public class GunController : MonoBehaviour
 
     public void Shoot()
     {
-        if (bullets.Count > 0) GetComponent<Gun>().Shoot(bullets[0], muzzleTransform,GetComponent<Ship>().pattern); 
+        if (bullets.Count > 0) GetComponent<Gun>().Shoot(bullets[0], muzzleTransform,GetComponent<Ship>().getPattern()); 
     }
 
-    public void Shoot(GameObject bullet)
+    public void Shoot(Bullet bullet)
     {
-        GetComponent<Gun>().Shoot(bullet, muzzleTransform,1); 
+        GetComponent<Gun>().Shoot(bullet, muzzleTransform,pattern); 
     }
 
     public void setPattern(int pattern)
