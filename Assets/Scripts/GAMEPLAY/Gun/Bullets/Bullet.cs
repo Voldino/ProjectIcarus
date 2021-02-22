@@ -20,7 +20,6 @@ public class Bullet : MonoBehaviour
                 PlayerController playerController = other.GetComponent<PlayerController>();
                 playerController.Hit(this.damage); 
                 Destroy(gameObject); 
-
             }    
         }
 
@@ -30,6 +29,11 @@ public class Bullet : MonoBehaviour
             {
                 Enemy_Controller enemyController = other.GetComponent<Enemy_Controller>();
                 enemyController.Hit(this.damage);
+                Destroy(gameObject);
+            }
+            else if (other.GetComponent<Asteroid>())
+            {
+                other.GetComponent<Asteroid>().Hit(damage);
                 Destroy(gameObject);
             }
         }

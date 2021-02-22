@@ -7,6 +7,7 @@ public class SpawnerManager : MonoBehaviour
     public int Phase = 0;
 
     [SerializeField] private List<Ship> ship_list ;
+    [SerializeField] private List<GameObject> obstacles_list; 
     [SerializeField] private List<Spawner> topSideSpawner ;
     [SerializeField] private List<Spawner> rightSideSpawner;
     [SerializeField] private List<Spawner> bottomSideSpawner;
@@ -70,7 +71,12 @@ public class SpawnerManager : MonoBehaviour
                 {
                     if (Random.Range(1, 4) == 1)
                     {
-                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)]);
+                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)].gameObject);
+                    }
+
+                    if (Random.Range(1, 10) == 1)
+                    {
+                        spawner.spawn(obstacles_list[Random.Range(0,obstacles_list.Count)]);
                     }
                 }
             }
@@ -80,7 +86,10 @@ public class SpawnerManager : MonoBehaviour
                 {
                     if (Random.Range(1, 4) == 1)
                     {
-                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)]);
+                        if (Random.Range(1, 4) == 1)
+                        {
+                            spawner.spawn(ship_list[Random.Range(0, ship_list.Count)].gameObject);
+                        }
                     }
                 }
             }
@@ -94,7 +103,12 @@ public class SpawnerManager : MonoBehaviour
                 {
                     if (Random.Range(1, 4) == 1)
                     {
-                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)]);
+                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)].gameObject);
+                    }
+
+                    if (Random.Range(1, 10) == 1)
+                    {
+                        spawner.spawn(obstacles_list[Random.Range(0, obstacles_list.Count)]);
                     }
                 }
             }

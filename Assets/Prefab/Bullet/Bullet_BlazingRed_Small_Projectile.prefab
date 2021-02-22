@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5921333590713106804}
   - component: {fileID: 8014164561498595830}
   - component: {fileID: 8451871429083466791}
+  - component: {fileID: 8854035958901382992}
   m_Layer: 0
   m_Name: Bullet_BlazingRed_Small_Projectile
   m_TagString: FX
@@ -4932,6 +4933,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8854035958901382992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830072771674013278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502836da8e5fbbc40aa8b3b7ece46c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sender: 0
 --- !u!1 &5830648313196669740
 GameObject:
   m_ObjectHideFlags: 0

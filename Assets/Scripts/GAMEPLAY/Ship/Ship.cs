@@ -26,8 +26,12 @@ public class Ship : MonoBehaviour
 
     private void DestroyShip()
     {
-        SpawnerManager.activeShip.Remove(this); 
-        Destroy(gameObject);  
+        if (gameObject.GetComponent<Enemy_Controller>()) SpawnerManager.activeShip.Remove(this);
+
+        FindObjectOfType<CameraShake>().Shake(0.25f, 0.25f);
+
+        Destroy(gameObject);
+        
     }
 
     public void attachMuzzle(Transform muzzle)
