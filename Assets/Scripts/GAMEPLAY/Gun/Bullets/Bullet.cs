@@ -5,8 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public enum SENDER {PLAYER,ENEMY}
-    private float damage = 1 ; 
-    private float speed = 1 ;
+    private float Damage = 1 ; 
+    private float bulletSpeed = 1 ;
     public SENDER sender; 
 
 
@@ -15,10 +15,10 @@ public class Bullet : MonoBehaviour
     {
         if (sender == SENDER.ENEMY)
         {
-            if (other.GetComponent<PlayerController>())
+            if (other.GetComponent<Player>())
             {
-                PlayerController playerController = other.GetComponent<PlayerController>();
-                playerController.Hit(this.damage); 
+                Player player = other.GetComponent<Player>();
+                player.Hit(this.Damage); 
                 Destroy(gameObject); 
             }    
         }
@@ -28,12 +28,12 @@ public class Bullet : MonoBehaviour
             if (other.GetComponent<Enemy_Controller>())
             {
                 Enemy_Controller enemyController = other.GetComponent<Enemy_Controller>();
-                enemyController.Hit(this.damage);
+                enemyController.Hit(this.Damage);
                 Destroy(gameObject);
             }
             else if (other.GetComponent<Asteroid>())
             {
-                other.GetComponent<Asteroid>().Hit(damage);
+                other.GetComponent<Asteroid>().Hit(this.Damage);
                 Destroy(gameObject);
             }
         }
@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour
 
     public void setDamage(float Damage)
     {
-        this.damage = Damage;
+        this.Damage = Damage;
     }
 
     public void setSender(SENDER _sender)
@@ -51,19 +51,19 @@ public class Bullet : MonoBehaviour
         sender = _sender; 
     }
 
-    public void setSpeed(float Speed)
+    public void setBulletSpeed(float bulletSpeed)
     {
-        this.speed = Speed;  
+        this.bulletSpeed = bulletSpeed;  
     }
 
     public float getDamage()
     {
-        return damage;
+        return Damage;
     }
 
-    public float getSpeed()
+    public float getBulletSpeed()
     {
-        return speed;
+        return bulletSpeed;
     }
 
 

@@ -11,7 +11,10 @@ public class PowerUpManager : MonoBehaviour
     private float waitTime = 1;
     private float timeCounter = 0f;
 
-    [SerializeField] private List<GameObject> powerUp_list;  
+    [SerializeField] private List<PowerUp> powerUp_list;
+    [SerializeField] private PowerUpShip powerUpShip; 
+
+    public PowerUpShip currentPowerUpShip; 
 
     private void Update()
     {
@@ -28,8 +31,12 @@ public class PowerUpManager : MonoBehaviour
 
     private void Spawn()
     {
-        GameObject powerUp = powerUp_list[Random.Range(0, powerUp_list.Count)];
-        GameObject powerUpShip = Instantiate(powerUp, gameObject.transform.position, powerUp.transform.rotation)  ;
-        powerUpShip.GetComponent<PowerUpShip>().setPowerUpItem(powerUp); 
+        if (currentPowerUpShip == null)
+        {
+            PowerUp _powerUp = powerUp_list[Random.Range(0, powerUp_list.Count)];
+            PowerUpShip newPowerUpShip = Instantiate(powerUpShip, gameObject.transform.position, powerUpShip.transform.rotation);
+            powerUpShip.GetComponent<PowerUpShip>().setPowerUpItem(_powerUp);
+            currentPowerUpShip = newPowerUpShip; 
+        }
     }
 }

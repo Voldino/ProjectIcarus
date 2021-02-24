@@ -26,7 +26,8 @@ public class Ship : MonoBehaviour
 
     private void DestroyShip()
     {
-        if (gameObject.GetComponent<Enemy_Controller>()) SpawnerManager.activeShip.Remove(this);
+        if (GetComponent<Player>()) GetComponent<Player>().GameOver(); 
+        if (gameObject.GetComponent<Enemy_Controller>()) SpawnerManager.activeShip.Remove(this.gameObject);
 
         FindObjectOfType<CameraShake>().Shake(0.25f, 0.25f);
 
@@ -49,11 +50,27 @@ public class Ship : MonoBehaviour
         HP -= damage;
     }
 
+    public void setPattern(int pattern) { this.pattern = pattern;  }
+
+    public void setDaleyTime(float delayTime) { this.delayTime = delayTime; }
+
+    public void setDamage(float damage) { this.damage = damage ; }
+
+    public void setSpeed(float Speed) { this.Speed = Speed; }
+
+    public void setBulletSpeed(float bulletSpeed) { this.bulletSpeed = bulletSpeed;  }
+
+    public void setHP(float HP) { this.HP = HP; }
+
     public int getPattern() {return pattern;}
 
     public float getDaleyTime() { return delayTime; }
 
     public float getDamage() { return damage; }
 
-    public float getSpeed() { return Speed; } 
+    public float getSpeed() { return Speed; }
+
+    public float getBulletSpeed() { return bulletSpeed; }
+
+    public float getHP() { return HP;  }
 }

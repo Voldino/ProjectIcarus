@@ -11,9 +11,13 @@ public class PowerUpShip : MonoBehaviour
     [SerializeField] private Vector3 B;
 
     private float speed = 2.0f;
-    private float width = 10f;
+    private float width = 20f;
 
-    private GameObject powerUpItem = null; 
+    public PowerUp powerUpItem = null;
+
+    private int chance = 10;
+
+    private float countDown = 0;
 
     private void Start()
     {
@@ -22,8 +26,17 @@ public class PowerUpShip : MonoBehaviour
     }
     private void Update()
     {
-        Move(); 
+        countDown += 1 * Time.deltaTime; 
+        Move();
+        if (countDown > 1)
+        {
+            DropPowerUp();
+            countDown = 0; 
+        }
+        
     }
+
+
 
     private void Move()
     {
@@ -33,25 +46,36 @@ public class PowerUpShip : MonoBehaviour
             transform.position = Vector3.MoveTowards(gameObject.transform.position, B, speed * Time.deltaTime);
             state = StateMachine.RESTING;
         }
-
         if (gameObject.transform.position == B)
         {
-            Vector3 tempVec = A;
-            A = B;
-            B = tempVec; 
+            if (powerUpItem == null)
+            {
+                Destroy(gameObject); 
+            }
+            else
+            {
+                Vector3 tempVec = A;
+                A = B;
+                B = tempVec;
+            }
         }
     }
 
-    private void SpawnPowerUp()
+    private void DropPowerUp()
     {
-        if (powerUpItem != null)
+        if (Random.Range(0, chance) == 0)
         {
-
+            if (powerUpItem != null)
+            {
+                PowerUp newPowerUp = Instantiate(powerUpItem, transform.position, powerUpItem.transform.rotation);
+                powerUpItem = null;
+            }
         }
     }
 
-    public void setPowerUpItem(GameObject powerUpItem)
+    public void setPowerUpItem(PowerUp powerUpItem)
     {
-        this.powerUpItem = powerUpItem; 
+        this.powerUpItem = powerUpItem;
+
     }
 }

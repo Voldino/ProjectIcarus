@@ -7,35 +7,55 @@ public class PlayerController : MonoBehaviour
     private enum StateMachine { IDLE, ATTACK, MOVE };
     private StateMachine state = StateMachine.IDLE;
 
-    public float verticalInputAcceleration = 1;
-    public float horizontalInputAcceleration = 20;
+    [SerializeField]
+    private float
+    verticalInputAcceleration = 1,
+    horizontalInputAcceleration = 20,
+    maxSpeed = 10,
+    maxRotationSpeed = 100,
+    velocityDrag = 1,
+    rotationDrag = 1,
+    zRotationVelocity = -1; 
 
-    public float maxSpeed = 10;
-    public float maxRotationSpeed = 100;
-
-    public float velocityDrag = 1;
-    public float rotationDrag = 1;
-
+    [SerializeField]
     private Vector3 velocity;
-    private float zRotationVelocity;
+
+
 
     private void Update()
     {
-        if (Input.GetAxisRaw("Vertical") == 1) {
-            Impulse();
-        }
+        GetInput();
+    }
 
+    private void GetInput()
+    {
         // apply turn input
         float zTurnAcceleration = -1 * Input.GetAxis("Horizontal") * horizontalInputAcceleration;
         zRotationVelocity += zTurnAcceleration /** Time.deltaTime*/;
 
-        outOfBount();
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetAxisRaw("Vertical") == 1)
+        {
+            Impulse();
+        }
+
+        if (Input.GetKey(KeyCode.Space)) // Using playerGunController (to shoot) 
+        {
             PlayerGunController playerGunController = GetComponent<PlayerGunController>();
-            playerGunController.Shoot(); 
+            playerGunController.Shoot();
+        }
+
+
+        //Swap Weapon 
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            GetComponent<Ship>().setPattern(0) ; 
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            GetComponent<Ship>().setPattern(1) ;
         }
     }
-
     private void FixedUpdate()
     {
         // apply velocity drag
@@ -61,20 +81,8 @@ public class PlayerController : MonoBehaviour
         velocity += acceleration * Time.deltaTime;
     }
 
-    private void outOfBount()
-    {
-        float yBound = 5.35f, xBound = 9.10f;
-        if (transform.position.y > yBound) transform.position = new Vector2(transform.position.x, -transform.position.y + 0.1f); 
-        else if (transform.position.y < -yBound) transform.position = new Vector2(transform.position.x, -transform.position.y - 0.1f);
-        
-        if (transform.position.x > xBound) transform.position = new Vector2(-transform.position.x + 0.1f, transform.position.y);
-        else if (transform.position.x < -xBound) transform.position = new Vector2(-transform.position.x - 0.1f, transform.position.y);
-    }
 
 
-    public void Hit(float damage)
-    {
-        gameObject.GetComponent<Ship>().Hit(damage);
-    }
+
 
 }

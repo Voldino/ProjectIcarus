@@ -15,9 +15,9 @@ public class Gun : MonoBehaviour
         
             Bullet newBullet = Instantiate(bullet, muzzleTransform.position, muzzleTransform.transform.rotation) ;
             newBullet.setSender(Bullet.SENDER.ENEMY);
-            newBullet.setDamage(gameObject.GetComponent<Ship>().getDamage());
+            newBullet.setDamage(GetComponent<Ship>().getDamage());
+            newBullet.setBulletSpeed(GetComponent<Ship>().getBulletSpeed());
 
-        
     }
 
     private void pattern1(Bullet bullet, Transform muzzleTransform)
@@ -38,7 +38,9 @@ public class Gun : MonoBehaviour
         {
             Bullet newBullet = Instantiate(bullet, muzzleTransform.position, muzzleTransform.transform.rotation);
             newBullet.setSender(Bullet.SENDER.ENEMY);
-            newBullet.setDamage(gameObject.GetComponent<Ship>().getDamage());
+            newBullet.setDamage(GetComponent<Ship>().getDamage());
+            newBullet.setBulletSpeed(GetComponent<Ship>().getBulletSpeed());
+
 
             muzzleTransform.transform.Rotate(new Vector3(0, 0, step));
         }

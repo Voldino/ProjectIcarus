@@ -132,9 +132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 1
   Arrmor: 0
-  Speed: 1
+  Speed: 2
   pattern: 0
-  bulletSpeed: 1
+  bulletSpeed: 3
   delayTime: 4
   damage: 1
   muzzle: {fileID: 0}

@@ -19,7 +19,6 @@ public class Enemy_Controller : MonoBehaviour
         playerGameObejct = GameObject.FindObjectOfType<PlayerController>().gameObject;
         destination = new Vector3(Random.Range(0, 4), Random.Range(0, 4), 0);
         GetComponent<Ship>().attachMuzzle(gameObject.transform.Find("Muzzle"));
-        //destination = playerGameObejct.transform.position + destination; 
     }
 
     // Update is called once per frame

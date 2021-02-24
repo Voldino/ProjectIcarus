@@ -10,16 +10,13 @@ public class PlayerGunController : MonoBehaviour
     private float delayTime;
     private float delayCount = 0;
 
-    private float countTime = 0;
     private float damage = 0;
-    private int pattern = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         muzzleTransform = gameObject.transform.Find("Muzzle").transform;
         delayTime = GetComponent<Ship>().getDaleyTime();
-        pattern = GetComponent<Ship>().getPattern(); 
     }
 
     // Update is called once per frame
@@ -32,21 +29,12 @@ public class PlayerGunController : MonoBehaviour
     {
         if (bullets.Count > 0 && delayCount >= delayTime)
         {
-            if(bullets.Count > 0 ) GetComponent<PlayerGun>().Shoot(bullets[0], pattern);
+            if(bullets.Count > 0 ) GetComponent<PlayerGun>().Shoot(bullets[0], gameObject.GetComponent<Ship>().getPattern() );
             delayCount = 0;
         }
 
     }
 
-    public void Shoot(Bullet bullet)
-    {
-        GetComponent<PlayerGun>().Shoot(bullet, pattern);
-    }
-
-    public void setPattern(int pattern)
-    {
-        this.pattern = pattern;
-    }
 
     public void setDelayTime(float delayTime)
     {

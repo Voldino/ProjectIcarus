@@ -9,7 +9,8 @@ public class NormalBullet : MonoBehaviour
 
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>(); 
+        rb2D = GetComponent<Rigidbody2D>();
+        speed = GetComponent<Bullet>().getBulletSpeed(); 
     }
 
     // Update is called once per frame

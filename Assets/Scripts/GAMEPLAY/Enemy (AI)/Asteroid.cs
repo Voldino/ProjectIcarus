@@ -46,6 +46,8 @@ public class Asteroid : MonoBehaviour
     }
 
     private void DestroyAsteroid(){
+        SpawnerManager.activeShip.Remove(this.gameObject);
+
         Destroy(gameObject);
         FindObjectOfType<CameraShake>().Shake(0.25f, 1);
     }
