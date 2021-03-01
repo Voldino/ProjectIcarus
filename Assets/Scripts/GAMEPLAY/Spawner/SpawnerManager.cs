@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SpawnerManager : MonoBehaviour
 {
     public int Phase = 0;
@@ -56,6 +56,11 @@ public class SpawnerManager : MonoBehaviour
             if (gameobj) Destroy(gameobj);
         }
 
+        if (Phase == 5)
+        {
+            SceneManager.LoadScene(0);
+            Database.playerWeaponUpgrade.Add(1); 
+        }
 
         activeShip.Clear(); 
 
@@ -102,7 +107,18 @@ public class SpawnerManager : MonoBehaviour
             }
             else if (Phase == 3)
             {
-                //spawn teasure
+                foreach (Spawner spawner in aLLSpawner)
+                {
+                    if (Random.Range(1, 4) == 1)
+                    {
+                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)].gameObject);
+                    }
+
+                    if (Random.Range(1, 10) == 1)
+                    {
+                        spawner.spawn(obstacles_list[Random.Range(0, obstacles_list.Count)]);
+                    }
+                }
             }
             else
             {

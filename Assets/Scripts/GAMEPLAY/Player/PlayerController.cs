@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            GetComponent<Ship>().setPattern(1) ;
+            if (Database.playerWeaponUpgrade.Count > 1) GetComponent<Ship>().setPattern(1);
+            else print("Second Weapon is unavailable");
         }
     }
     private void FixedUpdate()
