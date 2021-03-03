@@ -25,16 +25,19 @@ public class Bullet : MonoBehaviour
 
         if (sender == SENDER.PLAYER) 
         {
-            if (other.GetComponent<Enemy_Controller>())
+            if (other.CompareTag("Enemy"))
             {
-                Enemy_Controller enemyController = other.GetComponent<Enemy_Controller>();
-                enemyController.Hit(this.Damage);
-                Destroy(gameObject);
-            }
-            else if (other.GetComponent<Asteroid>())
-            {
-                other.GetComponent<Asteroid>().Hit(this.Damage);
-                Destroy(gameObject);
+                if (other.GetComponent<Ship>())
+                {
+                    Ship ship = other.GetComponent<Ship>();
+                    ship.Hit(this.Damage);
+                    Destroy(gameObject);
+                }else if (other.GetComponent<Asteroid>())
+                {
+                    Asteroid asteroid = other.GetComponent<Asteroid>();
+                    asteroid.Hit(this.Damage);
+                    Destroy(gameObject); 
+                }
             }
         }
 

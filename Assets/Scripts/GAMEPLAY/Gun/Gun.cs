@@ -26,6 +26,7 @@ public class Gun : MonoBehaviour
         float endAngle = 270.0f  ;
         int number_of_bullet = 5;
 
+        Quaternion originalMuzzleQuaternion = muzzleTransform.rotation;  
         Quaternion shootingQuaterrnion = muzzleTransform.transform.rotation; 
         float step = (endAngle - startAngle) / number_of_bullet;
 
@@ -45,6 +46,6 @@ public class Gun : MonoBehaviour
             muzzleTransform.transform.Rotate(new Vector3(0, 0, step));
         }
 
-        muzzleTransform.rotation = new Quaternion(0, 0, 0, 0);
+        muzzleTransform.rotation = originalMuzzleQuaternion;
     }
 }
