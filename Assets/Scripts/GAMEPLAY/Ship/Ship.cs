@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour
+public class Ship : MonoBehaviour, HitableObejct
 {
     [SerializeField] private float HP = 1;
     [SerializeField] private float Arrmor = 0;

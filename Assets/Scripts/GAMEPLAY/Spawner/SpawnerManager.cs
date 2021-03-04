@@ -23,6 +23,7 @@ public class SpawnerManager : MonoBehaviour
     private GameObject Portal;
 
     public static List<GameObject> activeShip = new List<GameObject>();  //When ship destroyed, it will be removed from activeShip by itself in Ship.cs 
+    public static List<GameObject> activeBullet = new List<GameObject>(); 
 
     void Start()
     {
@@ -57,6 +58,11 @@ public class SpawnerManager : MonoBehaviour
         foreach (GameObject gameobj in activeShip)
         {
             if (gameobj) Destroy(gameobj);
+        }
+
+        foreach (GameObject gameobj in activeBullet)
+        {
+            if (gameobj) Destroy(gameobj); 
         }
 
         if (Phase == 5)

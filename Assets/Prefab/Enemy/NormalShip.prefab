@@ -179,8 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 0}
-  bullets:
-  - {fileID: 1249280145346630828, guid: 96278f0b58665804aa1da589a6ea4c94, type: 3}
+  tags:
+  - NormalEnemyBullet
 --- !u!50 &8217217783001530529
 Rigidbody2D:
   serializedVersion: 4

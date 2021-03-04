@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     [SerializeField] private Transform muzzleTransform;
-    [SerializeField] private List<Bullet> bullets;
+    [SerializeField] private List<string> tags;
 
     private float delayTime ;
     private float countTime = 0;
@@ -21,22 +21,38 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countTime += 1 * Time.deltaTime; 
-        if (countTime >= delayTime + Random.Range(-0.5f,0.5f))
+        countTime += 1 * Time.deltaTime;
+
+        if (gameObject.CompareTag("Enemy"))
         {
-            countTime = 0; 
-            Shoot(); 
+            if (countTime >= delayTime + Random.Range(-0.5f, 0.5f)) Shoot();
         }
     }
 
     public void Shoot()
     {
-        if (bullets.Count > 0) GetComponent<Gun>().Shoot(bullets[0], muzzleTransform,GetComponent<Ship>().getPattern()); 
+        if (tags.Count > 0 && countTime >= delayTime)
+        {
+            print(countTime);
+            GetComponent<Gun>().Shoot(tags[0], muzzleTransform, GetComponent<Ship>().getPattern());
+            countTime = 0;
+        }
     }
 
-    public void Shoot(Bullet bullet)
+    public void Shoot(Bullet.SENDER SENDER)
     {
-        GetComponent<Gun>().Shoot(bullet, muzzleTransform,pattern); 
+        if (tags.Count > 0 && countTime >= delayTime)
+        {
+            print(countTime);
+            GetComponent<Gun>().Shoot(tags[0], muzzleTransform, GetComponent<Ship>().getPattern());
+            GetComponent<Gun>().setSender(SENDER);
+            countTime = 0;
+        }
+    }
+
+    public void Shoot(string tag)
+    {
+        GetComponent<Gun>().Shoot(tag, muzzleTransform,pattern); 
     }
 
     public void setPattern(int pattern)

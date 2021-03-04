@@ -1,26 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public void Shoot(Bullet bullet,Transform muzzleTransform,int pattern)
+    private Bullet.SENDER SENDER = Bullet.SENDER.ENEMY;
+
+    public void Shoot(string tag,Transform muzzleTransform,int pattern)
     {
-        if (pattern == 0) pattern0(bullet, muzzleTransform);
-        else if (pattern == 1) pattern1(bullet, muzzleTransform); 
+        if (pattern == 0) pattern0(tag, muzzleTransform);
+        else if (pattern == 1) pattern1(tag, muzzleTransform); 
     }
 
-    private void pattern0(Bullet bullet, Transform muzzleTransform)
+    private void pattern0(string tag, Transform muzzleTransform)
     {
         
-            Bullet newBullet = Instantiate(bullet, muzzleTransform.position, muzzleTransform.transform.rotation) ;
-            newBullet.setSender(Bullet.SENDER.ENEMY);
+            Bullet newBullet = createBullet(tag, muzzleTransform.position, muzzleTransform.transform.rotation) ;
+            newBullet.setSender(SENDER);
             newBullet.setDamage(GetComponent<Ship>().getDamage());
             newBullet.setBulletSpeed(GetComponent<Ship>().getBulletSpeed());
 
     }
 
-    private void pattern1(Bullet bullet, Transform muzzleTransform)
+    private void pattern1(string tag, Transform muzzleTransform)
     {
         float startAngle = 90.0f ;
         float endAngle = 270.0f  ;
@@ -37,15 +37,27 @@ public class Gun : MonoBehaviour
 
         for (int i = 0; i < number_of_bullet; i++)
         {
-            Bullet newBullet = Instantiate(bullet, muzzleTransform.position, muzzleTransform.transform.rotation);
-            newBullet.setSender(Bullet.SENDER.ENEMY);
+            Bullet newBullet = createBullet(tag, muzzleTransform.position, muzzleTransform.transform.rotation);
+            newBullet.setSender(SENDER);
             newBullet.setDamage(GetComponent<Ship>().getDamage());
             newBullet.setBulletSpeed(GetComponent<Ship>().getBulletSpeed());
 
-
+        
             muzzleTransform.transform.Rotate(new Vector3(0, 0, step));
         }
 
         muzzleTransform.rotation = originalMuzzleQuaternion;
+    }
+
+    private Bullet createBullet(string tag ,Vector3 position, Quaternion rotation)
+    {
+        Bullet newBullet = ObjectPool.PoolInstance.SpawnFromPool(tag, position, rotation); 
+
+        return newBullet;
+    }
+
+    public void setSender(Bullet.SENDER SENDER)
+    {
+        this.SENDER = SENDER; 
     }
 }

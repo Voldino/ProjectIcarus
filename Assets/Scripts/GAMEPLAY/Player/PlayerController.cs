@@ -40,8 +40,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space)) // Using playerGunController (to shoot) 
         {
-            PlayerGunController playerGunController = GetComponent<PlayerGunController>();
-            playerGunController.Shoot();
+            GunController gunController = GetComponent<GunController>();
+            Bullet.SENDER SENDER = Bullet.SENDER.PLAYER; 
+            gunController.Shoot(SENDER);
         }
 
 

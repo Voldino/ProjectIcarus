@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+public class Asteroid : MonoBehaviour, HitableObejct
 {
     [SerializeField] private float damage = 5f;
     [SerializeField] private float hp = 1;

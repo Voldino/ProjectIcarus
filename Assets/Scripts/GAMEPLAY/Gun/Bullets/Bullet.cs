@@ -7,7 +7,8 @@ public class Bullet : MonoBehaviour
     public enum SENDER {PLAYER,ENEMY}
     private float Damage = 1 ; 
     private float bulletSpeed = 1 ;
-    public SENDER sender; 
+    public SENDER sender;
+
 
 
 
@@ -17,29 +18,25 @@ public class Bullet : MonoBehaviour
         {
             if (other.GetComponent<Player>())
             {
-                Player player = other.GetComponent<Player>();
-                player.Hit(this.Damage); 
-                Destroy(gameObject); 
-            }    
+                DestroyBullet(other.gameObject);
+            }
         }
 
         if (sender == SENDER.PLAYER) 
         {
             if (other.CompareTag("Enemy"))
             {
-                if (other.GetComponent<Ship>())
-                {
-                    Ship ship = other.GetComponent<Ship>();
-                    ship.Hit(this.Damage);
-                    Destroy(gameObject);
-                }else if (other.GetComponent<Asteroid>())
-                {
-                    Asteroid asteroid = other.GetComponent<Asteroid>();
-                    asteroid.Hit(this.Damage);
-                    Destroy(gameObject); 
-                }
+                DestroyBullet(other.gameObject); 
             }
         }
+
+    }
+
+    void DestroyBullet(GameObject hitObj)
+    {
+        hitObj.GetComponent<HitableObejct>().Hit(Damage); 
+
+        gameObject.SetActive(false) ; 
 
     }
 
