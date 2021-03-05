@@ -65,6 +65,8 @@ public class SpawnerManager : MonoBehaviour
             if (gameobj) Destroy(gameobj); 
         }
 
+        ObjectPool.PoolInstance.DestroyAllBullet(); 
+
         if (Phase == 5)
         {
             SceneManager.LoadScene(0);

@@ -7,7 +7,7 @@ public class PowerUpManager : MonoBehaviour
     enum StateMachine {MOVING,RESTING};
     private StateMachine state = StateMachine.RESTING;
 
-    private int chance = 10 ; // 1 in chance
+    private int chance = 100 ; // 1 in chance
     private float waitTime = 1;
     private float timeCounter = 0f;
 

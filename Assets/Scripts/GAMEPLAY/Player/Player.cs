@@ -12,9 +12,15 @@ public class Player : MonoBehaviour
     private float countTime= 0;
     private float delayTime = 1000.0f;
 
-    void Start()
+    private void Start()
     {
+        loadFromDatabase();
+    }
 
+    private void loadFromDatabase()
+    {
+        Ship ship = GetComponent<Ship>(); 
+        
     }
 
     // Update is called once per frame

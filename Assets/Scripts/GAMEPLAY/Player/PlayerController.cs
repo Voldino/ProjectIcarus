@@ -20,8 +20,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Vector3 velocity;
 
-
-
     private void Update()
     {
         GetInput();

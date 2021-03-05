@@ -4,33 +4,49 @@ using UnityEngine;
 
 public class Database : MonoBehaviour
 {
-    [HideInInspector] static public List<int> playerWeaponUpgrade;
-    [HideInInspector] static public List<int> playerSkillUnlocked ; 
-    [HideInInspector] static float flightTime ;
-    [HideInInspector] static int exp ;
+    //using tags  
+    [HideInInspector] static public Dictionary <string , bool> playerWeaponUpgrade; //NormalGun , QuintupleGun
+    [HideInInspector] static public Dictionary <string , float> increasedStat; //Attack , Speed , HP 
+    //
+
+    [HideInInspector] static float flightTime;
+    [HideInInspector] static int exp;
 
     public static Database instance = null;
 
+    #region singleton 
 
     void Awake()
     {
+        increasedStat = new Dictionary<string, float>()     ;
+        playerWeaponUpgrade = new Dictionary<string, bool>() ;
+
+        string[] statName = { "Attack", "Speed", "HP" } ; 
+        string[] playerWeaponName = {"NormalGun" , "QuintupleGun" }   ;
         if (instance == null)
         {
             instance = this;
-            playerWeaponUpgrade = new List<int>() ;
-            playerWeaponUpgrade.Add(1);
+            for (int i = 0; i < statName.Length; i++)
+            {
+                increasedStat.Add(statName[i], 0.0f)    ;
+            }
 
-            DontDestroyOnLoad(gameObject);
+            for (int i = 0; i < playerWeaponName.Length; i++)
+            {
+                playerWeaponUpgrade.Add(playerWeaponName[i], false); 
+            }
+
+            DontDestroyOnLoad(gameObject)   ;
         }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
+        else if (instance != this) Destroy(gameObject)  ;
+        
     }
+
+    #endregion
 
     void Start()
     {
-        print(playerWeaponUpgrade.Count);
+
     }
 
     // Update is called once per frame

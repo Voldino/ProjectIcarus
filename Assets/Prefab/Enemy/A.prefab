@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1945500009842376846}
   m_Layer: 0
   m_Name: GUN1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,8 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleTransform: {fileID: 0}
-  bullets:
-  - {fileID: 1249280145346630828, guid: 96278f0b58665804aa1da589a6ea4c94, type: 3}
+  tags:
+  - NormalEnemyBullet
 --- !u!114 &4181668205923703734
 MonoBehaviour:
   m_ObjectHideFlags: 0
