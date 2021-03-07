@@ -54,4 +54,37 @@ public class Database : MonoBehaviour
     {
         if (GameObject.FindObjectOfType<PlayerController>()) flightTime += 1 * Time.deltaTime; //If player still alive, increase flightTime. 
     }
+
+    public void IncreaseAttack()
+    {
+        increasedStats["Attack"] += 1;
+        Debug.Log(increasedStats["Attack"]);
+    }
+
+    public void IncreaseHP()
+    {
+        if (increasedStats["Attack"] > 0)
+        {
+            increasedStats["HP"] += 1;
+            Debug.Log(increasedStats["HP"]);
+        }
+        else
+        {
+            Debug.Log("Please upgrade attack first!");
+        }
+    }
+
+    public void IncreaseSpeed()
+    {
+        if (increasedStats["HP"] > 0)
+        {
+            increasedStats["Speed"] += 1;
+            Debug.Log(increasedStats["Speed"]);
+        }
+        else
+        {
+            Debug.Log("Please upgrade hp first!");
+        }
+
+    }
 }
