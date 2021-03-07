@@ -5,8 +5,8 @@ using UnityEngine;
 public class Database : MonoBehaviour
 {
     //using tags  
-    [HideInInspector] static public Dictionary <string , bool> playerWeaponUpgrade; //NormalGun , QuintupleGun
-    [HideInInspector] static public Dictionary <string , float> increasedStat; //Attack , Speed , HP 
+    [HideInInspector] static public Dictionary <string , bool> playerWeaponUpgrade; //NormalGun , QuintupleGun 
+    [HideInInspector] static public Dictionary <string , float> increasedStats; //Attack , Speed , HP 
     //
 
     [HideInInspector] static float flightTime;
@@ -18,7 +18,7 @@ public class Database : MonoBehaviour
 
     void Awake()
     {
-        increasedStat = new Dictionary<string, float>()     ;
+        increasedStats = new Dictionary<string, float>()     ;
         playerWeaponUpgrade = new Dictionary<string, bool>() ;
 
         string[] statName = { "Attack", "Speed", "HP" } ; 
@@ -28,7 +28,7 @@ public class Database : MonoBehaviour
             instance = this;
             for (int i = 0; i < statName.Length; i++)
             {
-                increasedStat.Add(statName[i], 0.0f)    ;
+                increasedStats.Add(statName[i], 0.0f)    ;
             }
 
             for (int i = 0; i < playerWeaponName.Length; i++)

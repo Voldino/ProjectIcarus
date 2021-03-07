@@ -69,8 +69,7 @@ public class SpawnerManager : MonoBehaviour
 
         if (Phase == 5)
         {
-            SceneManager.LoadScene(0);
-            Database.playerWeaponUpgrade.Add(1); 
+            SceneManager.LoadScene(0);  
         }
 
         activeShip.Clear(); 
@@ -118,17 +117,14 @@ public class SpawnerManager : MonoBehaviour
             }
             else if (Phase == 3)
             {
-                foreach (Spawner spawner in aLLSpawner)
+                int i = 0;
+                foreach (Spawner spawner in rightSideSpawner)
                 {
-                    if (Random.Range(1, 2) == 1 && number_of_boss == 0)
+                    i++;
+                    if (number_of_boss == 0 && i == 3)
                     {
-                        spawner.spawn(bosses_list[Random.Range(0,bosses_list.Count)]) ;
-                        number_of_boss++; 
-                    }
-
-                    else if (Random.Range(1, 4) == 1)
-                    {
-                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)].gameObject);
+                        spawner.spawn(bosses_list[Random.Range(0, bosses_list.Count)]);
+                        number_of_boss++;
                     }
 
                     else if (Random.Range(1, 10) == 1)
