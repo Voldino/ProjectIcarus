@@ -63,28 +63,47 @@ public class Database : MonoBehaviour
 
     public void IncreaseHP()
     {
-        if (increasedStats["Attack"] > 0)
-        {
-            increasedStats["HP"] += 1;
-            Debug.Log(increasedStats["HP"]);
-        }
-        else
-        {
-            Debug.Log("Please upgrade attack first!");
-        }
+        increasedStats["HP"] += 1;
+        Debug.Log(increasedStats["HP"]);
     }
 
     public void IncreaseSpeed()
     {
-        if (increasedStats["HP"] > 0)
+        increasedStats["Speed"] += 1;
+        Debug.Log(increasedStats["Speed"]);
+
+    }
+
+    public void UnlockNormal()
+    {
+        playerWeaponUpgrade["NormalGun"] = true;
+        Debug.Log(playerWeaponUpgrade["NormalGun"]);
+    }
+
+    public void UnlockQuintuple()
+    {
+        if (playerWeaponUpgrade["NormalGun"] == true)
         {
-            increasedStats["Speed"] += 1;
-            Debug.Log(increasedStats["Speed"]);
+            playerWeaponUpgrade["QuintupleGun"] = true;
+            Debug.Log(playerWeaponUpgrade["QuintupleGun"]);
         }
         else
         {
-            Debug.Log("Please upgrade hp first!");
+            Debug.Log("Please unlock normal gun first first!");
         }
-
     }
+
+    //public void UnlockMissiles()
+    //{
+    //    if (playerWeaponUpgrade["HP"] > 0)
+    //    {
+    //        playerWeaponUpgrade[""] += 1;
+    //        Debug.Log(playerWeaponUpgrade["Speed"]);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Please upgrade hp first!");
+    //    }
+
+    //}
 }
