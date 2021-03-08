@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PanelOpener : MonoBehaviour
+public class SkillTreeOpener : MonoBehaviour
 {
     public GameObject Panel;
     public GameObject AtkUp;
