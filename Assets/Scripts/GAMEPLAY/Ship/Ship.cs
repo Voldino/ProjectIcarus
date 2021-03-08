@@ -11,7 +11,7 @@ public class Ship : MonoBehaviour, HitableObejct
     [SerializeField] private float bulletSpeed = 1.0f;
     [SerializeField] private float delayTime = 0f;
     [SerializeField] private float damage = 1f;
-
+    [SerializeField] private int currentBullet = 0 ;
     [HideInInspector] public Transform muzzle;
 
     private void Start()
@@ -62,6 +62,8 @@ public class Ship : MonoBehaviour, HitableObejct
 
     public void setHP(float HP) { this.HP = HP; }
 
+    public void setCurrentBullet(int currentBullet) { this.currentBullet = currentBullet; } 
+
     public int getPattern() {return pattern;}
 
     public float getDaleyTime() { return delayTime; }
@@ -73,4 +75,6 @@ public class Ship : MonoBehaviour, HitableObejct
     public float getBulletSpeed() { return bulletSpeed; }
 
     public float getHP() { return HP;  }
+
+    public int getCurrentBullet() { return currentBullet; }
 }

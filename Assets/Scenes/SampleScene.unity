@@ -857,6 +857,7 @@ MonoBehaviour:
   muzzleTransform: {fileID: 0}
   tags:
   - NormalPlayerBullet
+  - HomingMissile
 --- !u!114 &734609461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,6 +877,7 @@ MonoBehaviour:
   bulletSpeed: 6
   delayTime: 0.1
   damage: 1
+  currentBullet: 0
   muzzle: {fileID: 0}
 --- !u!114 &734609462
 MonoBehaviour:
@@ -1618,6 +1620,10 @@ MonoBehaviour:
     prefab: {fileID: 4053337568684483028, guid: 96278f0b58665804aa1da589a6ea4c94,
       type: 3}
     size: 500
+  - tag: HomingMissile
+    prefab: {fileID: 3203343702653568633, guid: 6ce4a97627aec674bb5a0efe18058ed3,
+      type: 3}
+    size: 20
 --- !u!1 &1468318828
 GameObject:
   m_ObjectHideFlags: 0

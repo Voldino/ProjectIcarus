@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public delegate void PowerUpDelegate();
     public PowerUpDelegate PowerUp = null;
 
+ 
     [SerializeField] 
     private float countTime= 0;
     private float delayTime = 1000.0f;
@@ -30,10 +31,8 @@ public class Player : MonoBehaviour
 
         if (PowerUp != null)
         {
-
             countTime += 1 * Time.deltaTime;
             PowerUp();
-
 
             if (countTime < delayTime)
             {
@@ -72,5 +71,6 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<Ship>().Hit(damage);
     }
 
+ 
 
 }

@@ -34,7 +34,7 @@ public class GunController : MonoBehaviour
         if (tags.Count > 0 && countTime >= delayTime)
         {
             print(countTime);
-            GetComponent<Gun>().Shoot(tags[0], muzzleTransform, GetComponent<Ship>().getPattern());
+            GetComponent<Gun>().Shoot(tags[GetComponent<Ship>().getCurrentBullet()], muzzleTransform, GetComponent<Ship>().getPattern());
             countTime = 0;
         }
     }
@@ -44,7 +44,7 @@ public class GunController : MonoBehaviour
         if (tags.Count > 0 && countTime >= delayTime)
         {
             print(countTime);
-            GetComponent<Gun>().Shoot(tags[0], muzzleTransform, GetComponent<Ship>().getPattern());
+            GetComponent<Gun>().Shoot(tags[GetComponent<Ship>().getCurrentBullet()], muzzleTransform, GetComponent<Ship>().getPattern());
             GetComponent<Gun>().setSender(SENDER);
             countTime = 0;
         }
@@ -69,4 +69,6 @@ public class GunController : MonoBehaviour
     {
         this.damage = damage; 
     }
+
+ 
 }

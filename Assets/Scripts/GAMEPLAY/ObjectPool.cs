@@ -55,6 +55,8 @@ public class ObjectPool : MonoBehaviour
         {
             Bullet objectToSpawn = poolDictionary[tag].Dequeue();
 
+            objectToSpawn.gameObject.SetActive(false);
+
             objectToSpawn.gameObject.SetActive(true);
             objectToSpawn.transform.position = position;
             objectToSpawn.transform.rotation = rotation;
