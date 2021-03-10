@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ship : MonoBehaviour, HitableObejct
 {
@@ -13,15 +14,19 @@ public class Ship : MonoBehaviour, HitableObejct
     [SerializeField] private float damage = 1f;
     [SerializeField] private int currentBullet = 0 ;
     [HideInInspector] public Transform muzzle;
+   
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
 
     private void Start()
     {
-
+        slider.value = HP;
     }
     private void Update()
     {
         if (HP <= 0) DestroyShip();
-
+        slider.value = HP;
     }
 
     private void DestroyShip()
@@ -77,4 +82,19 @@ public class Ship : MonoBehaviour, HitableObejct
     public float getHP() { return HP;  }
 
     public int getCurrentBullet() { return currentBullet; }
+
+    public void SetMaxHealth(int health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
+
+        fill.color = gradient.Evaluate(1f);
+    }
+
+    public void SetHealth(int health)
+    {
+        slider.value = health;
+
+        fill.color = gradient.Evaluate(slider.normalizedValue);
+    }
 }
