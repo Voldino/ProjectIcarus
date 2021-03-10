@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class Player : MonoBehaviour
 {
     [HideInInspector]
@@ -13,22 +15,26 @@ public class Player : MonoBehaviour
     private float countTime= 0;
     private float delayTime = 1000.0f;
 
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
+
     private void Start()
     {
         loadFromDatabase();
+        SetMaxHealth(GetComponent<Ship>().getHP());
     }
 
     private void loadFromDatabase()
     {
-        Ship ship = GetComponent<Ship>(); 
-        
+        Ship ship = GetComponent<Ship>();
     }
 
     // Update is called once per frame
     void Update()
     {
         OutOfBount();
-
+        slider.value = GetComponent<Ship>().getHP() ;
         if (PowerUp != null)
         {
             countTime += 1 * Time.deltaTime;
@@ -71,6 +77,20 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<Ship>().Hit(damage);
     }
 
- 
+    public void SetMaxHealth(float health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
+
+        //fill.color = gradient.Evaluate(1f);
+    }
+
+    public void SetHealth(float health)
+    {
+        slider.value = health;
+
+        //fill.color = gradient.Evaluate(slider.normalizedValue);
+    }
+
 
 }

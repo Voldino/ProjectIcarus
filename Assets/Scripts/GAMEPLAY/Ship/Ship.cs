@@ -15,18 +15,16 @@ public class Ship : MonoBehaviour, HitableObejct
     [SerializeField] private int currentBullet = 0 ;
     [HideInInspector] public Transform muzzle;
    
-    public Slider slider;
-    public Gradient gradient;
-    public Image fill;
+
 
     private void Start()
     {
-        slider.value = HP;
+
     }
     private void Update()
     {
         if (HP <= 0) DestroyShip();
-        slider.value = HP;
+
     }
 
     private void DestroyShip()
@@ -83,18 +81,5 @@ public class Ship : MonoBehaviour, HitableObejct
 
     public int getCurrentBullet() { return currentBullet; }
 
-    public void SetMaxHealth(int health)
-    {
-        slider.maxValue = health;
-        slider.value = health;
 
-        fill.color = gradient.Evaluate(1f);
-    }
-
-    public void SetHealth(int health)
-    {
-        slider.value = health;
-
-        fill.color = gradient.Evaluate(slider.normalizedValue);
-    }
 }

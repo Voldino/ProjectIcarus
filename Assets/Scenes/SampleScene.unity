@@ -432,7 +432,7 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -755,7 +755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.21282959, y: -0.24838257}
+  m_AnchoredPosition: {x: 49.9, y: -35.5}
   m_SizeDelta: {x: 0.4257202, y: 0.49679184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503437376
@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8b6799be5e48f448b4c625f1a6db42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 50
+  HP: 10
   Arrmor: 0
   Speed: 6
   pattern: 0
@@ -1156,6 +1156,19 @@ MonoBehaviour:
   damage: 1
   currentBullet: 0
   muzzle: {fileID: 0}
+--- !u!114 &734609462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734609453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc42192a8b6f5443a65963d48385900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countTime: 0
   slider: {fileID: 1684429958}
   gradient:
     serializedVersion: 2
@@ -1187,19 +1200,6 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 1108700774}
---- !u!114 &734609462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734609453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc42192a8b6f5443a65963d48385900, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countTime: 0
 --- !u!114 &734609463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1730,7 +1730,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50.112823, y: -35.251595}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108700774
@@ -2098,7 +2098,7 @@ MonoBehaviour:
   - tag: NormalPlayerBullet
     prefab: {fileID: 4053337568684483028, guid: ba3263109454ee74085079f0f7b290d1,
       type: 3}
-    size: 300
+    size: 5
   - tag: NormalEnemyBullet
     prefab: {fileID: 4053337568684483028, guid: 96278f0b58665804aa1da589a6ea4c94,
       type: 3}
@@ -2106,7 +2106,7 @@ MonoBehaviour:
   - tag: HomingMissile
     prefab: {fileID: 3203343702653568633, guid: 6ce4a97627aec674bb5a0efe18058ed3,
       type: 3}
-    size: 20
+    size: 30
 --- !u!1 &1468318828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2268,7 +2268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1651391415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2285,7 +2285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -203.2, y: 3.4}
+  m_AnchoredPosition: {x: -189.08717, y: -29.251595}
   m_SizeDelta: {x: 74.71475, y: 68.96747}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1651391416
@@ -2361,8 +2361,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -379.77, y: 305.11}
-  m_SizeDelta: {x: -1004.0661, y: -789.5555}
+  m_AnchoredPosition: {x: 0, y: -417}
+  m_SizeDelta: {x: -1393.1313, y: -1022.52966}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684429958
 MonoBehaviour:

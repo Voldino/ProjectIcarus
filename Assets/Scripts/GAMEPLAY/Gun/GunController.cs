@@ -43,9 +43,8 @@ public class GunController : MonoBehaviour
     {
         if (tags.Count > 0 && countTime >= delayTime)
         {
-            print(countTime);
-            GetComponent<Gun>().Shoot(tags[GetComponent<Ship>().getCurrentBullet()], muzzleTransform, GetComponent<Ship>().getPattern());
             GetComponent<Gun>().setSender(SENDER);
+            GetComponent<Gun>().Shoot(tags[GetComponent<Ship>().getCurrentBullet()], muzzleTransform, GetComponent<Ship>().getPattern());
             countTime = 0;
         }
     }

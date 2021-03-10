@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private enum StateMachine { IDLE, ATTACK, MOVE };
     private StateMachine state = StateMachine.IDLE;
-
+    private Bullet.SENDER SENDER = Bullet.SENDER.PLAYER ;
     [SerializeField]
     private float
     verticalInputAcceleration = 1,
@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space)) // Using playerGunController (to shoot) 
         {
             GunController gunController = GetComponent<GunController>();
-            Bullet.SENDER SENDER = Bullet.SENDER.PLAYER; 
             gunController.Shoot(SENDER);
         }
 
