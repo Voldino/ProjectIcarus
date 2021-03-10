@@ -123,13 +123,13 @@ public class SpawnerManager : MonoBehaviour
                     i++;
                     if (number_of_boss == 0 && i == 3)
                     {
-                        spawner.spawn(bosses_list[Random.Range(0, bosses_list.Count)]);
+                        spawner.spawn(bosses_list[Random.Range(0, bosses_list.Count+1)]);
                         number_of_boss++;
                     }
 
                     else if (Random.Range(1, 10) == 1)
                     {
-                        spawner.spawn(obstacles_list[Random.Range(0, obstacles_list.Count)]);
+                        spawner.spawn(obstacles_list[Random.Range(0, obstacles_list.Count+1)]);
                     }
                 }
             }

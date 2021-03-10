@@ -119,6 +119,7 @@ MonoBehaviour:
   bulletSpeed: 1
   delayTime: 0
   damage: 1
+  currentBullet: 0
   muzzle: {fileID: 0}
 --- !u!60 &5536929381637946859
 PolygonCollider2D:
@@ -211,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3f3e559fd02f74784bbb6bed92778b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzleTransform: {fileID: 0}
+  muzzleTransform: {fileID: 487984965090004559}
   tags:
   - NormalEnemyBullet
 --- !u!114 &4181668205923703734
@@ -245,6 +246,7 @@ MonoBehaviour:
   bulletSpeed: 4
   delayTime: 2
   damage: 1
+  currentBullet: 0
   muzzle: {fileID: 0}
 --- !u!1 &9042780826078130727
 GameObject:
