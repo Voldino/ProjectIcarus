@@ -17,7 +17,10 @@ public class HomingMissle : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        if (usedTargetList == null) usedTargetList = new List<int>();
+        if (usedTargetList == null)
+        {
+            usedTargetList = new List<int>();
+        }
         target = getTarget();
         rb = GetComponent<Rigidbody2D>();
         print("Same is " +same);
@@ -77,7 +80,7 @@ public class HomingMissle : MonoBehaviour
                 }
             }
         }
-        if ( _target != null) usedTargetList.Add(usedIndex);
+        if ( _target != null && usedTargetList.Count < SpawnerManager.activeShip.Count) usedTargetList.Add(usedIndex);
         return _target ;
     }
 
