@@ -58,25 +58,37 @@ public class Database : MonoBehaviour
 
     public void IncreaseAttack()
     {
-        increasedStats["Attack"] += 1;
-        Debug.Log(increasedStats["Attack"]);
+        if (flightTime >= 180 && increasedStats["Attack"] < 9) 
+        {
+            increasedStats["Attack"] += 3;
+            flightTime -= 180;
+            Debug.Log(increasedStats["Attack"]);
+        }
     }
 
     public void IncreaseHP()
     {
-        increasedStats["HP"] += 1;
-        Debug.Log(increasedStats["HP"]);
+        if (flightTime >= 180 && increasedStats["Attack"] < 9)
+        {
+            increasedStats["HP"] += 3;
+            flightTime -= 5;
+            Debug.Log(increasedStats["HP"]);
+        }
     }
 
     public void IncreaseSpeed()
     {
-        increasedStats["Speed"] += 1;
-        Debug.Log(increasedStats["Speed"]);
-
+        if (flightTime >= 180 && increasedStats["Attack"] < 9)
+        {
+            increasedStats["Speed"] += 3;
+            flightTime -= 180;
+            Debug.Log(increasedStats["Speed"]);
+        }
     }
 
     public void UnlockNormal()
     {
+        //10 coins for 3, 20 coins for 5
         playerWeaponUpgrade["NormalGun"] = true;
         Debug.Log(playerWeaponUpgrade["NormalGun"]);
     }
@@ -90,21 +102,21 @@ public class Database : MonoBehaviour
         }
         else
         {
-            Debug.Log("Please unlock normal gun first first!");
+            Debug.Log("Please unlock normal gun first!");
         }
     }
 
-    //public void UnlockMissiles()
-    //{
-    //    if (playerWeaponUpgrade["HP"] > 0)
-    //    {
-    //        playerWeaponUpgrade[""] += 1;
-    //        Debug.Log(playerWeaponUpgrade["Speed"]);
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Please upgrade hp first!");
-    //    }
-
-    //}
+    public void UnlockHomingMissile()
+    {
+        // prcos chance of shooting a missile
+        if (playerWeaponUpgrade["QuintupleGun"] == true)
+        {
+            playerWeaponUpgrade["HomingMissile"] = true;
+            Debug.Log(playerWeaponUpgrade["QuintupleGun"]);
+        }
+        else
+        {
+            Debug.Log("Please unlock quintuple gunfirst!");
+        }
+    }
 }
