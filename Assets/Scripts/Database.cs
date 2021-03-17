@@ -9,8 +9,8 @@ public class Database : MonoBehaviour
     [HideInInspector] static public Dictionary <string , float> increasedStats; //Attack , Speed , HP 
     //
 
-    [HideInInspector] static float flightTime;
-    [HideInInspector] static int money;
+    [HideInInspector] static public float flightTime;
+    [HideInInspector] static public int money;
 
     public static Database instance = null;
 

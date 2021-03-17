@@ -61,7 +61,7 @@ public class SpawnerManager : MonoBehaviour
     }
 
     public void nextPhase(int increasePhase) //Used for increaseing phase 
-    {
+    {/*
         print("Phase " + Phase);
         Phase += increasePhase;
         spawnPortalIn = 0;
@@ -83,7 +83,7 @@ public class SpawnerManager : MonoBehaviour
         }
 
         activeShip.Clear();
-        number_of_boss = 0;
+        number_of_boss = 0;*/
            
     }
 

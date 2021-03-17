@@ -47,7 +47,7 @@ public class A : MonoBehaviour
     private void DestroyA()
     {
         SpawnerManager.activeShip.Remove(this.gameObject);
-
+        Database.money += 5;
         Destroy(gameObject);
         FindObjectOfType<CameraShake>().Shake(0.25f, 1);
     }
