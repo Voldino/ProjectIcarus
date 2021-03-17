@@ -43,6 +43,7 @@ public class A : MonoBehaviour
         }
     }
 
+
     private void DestroyA()
     {
         SpawnerManager.activeShip.Remove(this.gameObject);

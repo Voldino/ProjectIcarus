@@ -10,7 +10,7 @@ public class Database : MonoBehaviour
     //
 
     [HideInInspector] static float flightTime;
-    [HideInInspector] static int exp;
+    [HideInInspector] static int money;
 
     public static Database instance = null;
 

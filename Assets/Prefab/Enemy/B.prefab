@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 7161850390203320723}
   - component: {fileID: -2221203781760355940}
   - component: {fileID: 1770694924340831721}
+  - component: {fileID: -4985162548103018064}
   m_Layer: 0
   m_Name: B
   m_TagString: Enemy
@@ -230,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8b6799be5e48f448b4c625f1a6db42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 500
+  HP: 600
   Arrmor: 0
   Speed: 1
   pattern: 0
@@ -412,3 +413,22 @@ PolygonCollider2D:
       - {x: 4.37, y: -1.23}
       - {x: 4.37, y: -1.37}
       - {x: 4.23, y: -1.37}
+--- !u!95 &-4985162548103018064
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8785934258756478756}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d1cd1adffcfe8445989f63762eb87a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

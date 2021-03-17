@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8b6799be5e48f448b4c625f1a6db42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
+  HP: 5
   Arrmor: 0
   Speed: 6
   pattern: 0
@@ -1956,6 +1956,7 @@ MonoBehaviour:
   bosses_list:
   - {fileID: 239968525070855481, guid: 8c5102c1ef539434e8dc9f4e2e44b28e, type: 3}
   - {fileID: 8785934258756478756, guid: 6a0bdb3d82d9ef74f8ffc819763f571e, type: 3}
+  - {fileID: 3582426582939521760, guid: de45ee4f4a891734cb7d05dbba1b0827, type: 3}
   topSideSpawner:
   - {fileID: 375022394}
   - {fileID: 68791642}
@@ -2108,6 +2109,10 @@ MonoBehaviour:
     prefab: {fileID: 3203343702653568633, guid: 6ce4a97627aec674bb5a0efe18058ed3,
       type: 3}
     size: 30
+  - tag: ZigZagBullet
+    prefab: {fileID: 1513689886198739912, guid: 29078d53551bc1c4fbe2e4660a74cd9b,
+      type: 3}
+    size: 50
 --- !u!1 &1468318828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2632,7 +2637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786184917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.23, y: 0, z: 0}
+  m_LocalPosition: {x: 7.57, y: 0.58, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

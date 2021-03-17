@@ -18,6 +18,7 @@ public class SpawnerManager : MonoBehaviour
 
     [SerializeField] private float spawnDelay = 1;
     private float spawnCountDown = 0f;
+    private float spawnPortalIn = 0;
     private int number_of_boss = 0;
 
     private GameObject Portal;
@@ -27,20 +28,28 @@ public class SpawnerManager : MonoBehaviour
 
     void Start()
     {
-        Phase = 0;
+        Phase = 1;
         Portal = GameObject.FindObjectOfType<Portal>().gameObject;
+        Portal.SetActive(false); 
     }
 
     // Update is called once per frame
     void Update()
     {
         spawnCountDown += 1 * Time.deltaTime;
+        spawnPortalIn += 1 * Time.deltaTime ; 
         spawn();
-
-        if (Input.GetKeyDown(KeyCode.P))
+        if (spawnPortalIn >= 15 && number_of_boss == 0)
         {
+            spawnPortalIn = -99999999999f;
             openPortal();
         }
+        else if (Input.GetKeyDown(KeyCode.P) )
+        {
+            spawnPortalIn = -99999999999f;
+            openPortal();
+        }
+        
 
         DeactiveShip();
     }
@@ -55,6 +64,7 @@ public class SpawnerManager : MonoBehaviour
     {
         print("Phase " + Phase);
         Phase += increasePhase;
+        spawnPortalIn = 0;
         foreach (GameObject gameobj in activeShip)
         {
             if (gameobj) Destroy(gameobj);
@@ -72,8 +82,8 @@ public class SpawnerManager : MonoBehaviour
             SceneManager.LoadScene(0);  
         }
 
-        activeShip.Clear(); 
-
+        activeShip.Clear();
+        number_of_boss = 0;
            
     }
 
@@ -87,24 +97,10 @@ public class SpawnerManager : MonoBehaviour
         if (spawnCountDown >= spawnDelay || activeShip.Count == 0)
         {
             spawnCountDown = 0f; 
-            if (Phase == 2)
+            
+            if (Phase == 1)
             {
-                foreach (Spawner spawner in rightSideSpawner)
-                {
-                    if (Random.Range(1, 4) == 1)
-                    {
-                        spawner.spawn(ship_list[Random.Range(0, ship_list.Count)].gameObject);
-                    }
-
-                    else if (Random.Range(1, 10) == 1)
-                    {
-                        spawner.spawn(obstacles_list[Random.Range(0,obstacles_list.Count)]);
-                    }
-                }
-            }
-            else if (Phase == 4)
-            {
-                foreach (Spawner spawner in topSideSpawner)
+                foreach (Spawner spawner in aLLSpawner)
                 {
                     if (Random.Range(1, 4) == 1)
                     {
@@ -115,7 +111,7 @@ public class SpawnerManager : MonoBehaviour
                     }
                 }
             }
-            else if (Phase == 3)
+            else if (Phase == 2)
             {
                 int i = 0;
                 foreach (Spawner spawner in rightSideSpawner)
@@ -123,17 +119,36 @@ public class SpawnerManager : MonoBehaviour
                     i++;
                     if (number_of_boss == 0 && i == 3)
                     {
-                        spawner.spawn(bosses_list[Random.Range(0, bosses_list.Count+1)]);
+                        spawner.spawn(bosses_list[Random.Range(0, bosses_list.Count - 1)] ); // the last one is the final boss, so it isn't included, Noted that Random.Range(x,y) will return x to y-1 when x and y is int)
                         number_of_boss++;
                     }
 
                     else if (Random.Range(1, 10) == 1)
                     {
-                        spawner.spawn(obstacles_list[Random.Range(0, obstacles_list.Count+1)]);
+                        spawner.spawn(obstacles_list[Random.Range(0, obstacles_list.Count - 1)]);
                     }
                 }
             }
-            else
+            else if (Phase == 4)
+            {
+                int i = 0;
+                foreach (Spawner spawner in rightSideSpawner)
+                {
+                    i++;
+                    if (number_of_boss == 0 && i == 3)
+                    {
+                        spawner.spawn(bosses_list[bosses_list.Count-1]); // the last one is the final boss, so it isn't included, Noted that Random.Range(x,y) will return x to y-1 when x and y is int)
+                        number_of_boss++;
+                    }
+
+                    else if (Random.Range(1, 10) == 1)
+                    {
+                        spawner.spawn(obstacles_list[Random.Range(0, obstacles_list.Count)]);
+                    }
+                }
+            }
+
+            else 
             {
                 foreach (Spawner spawner in aLLSpawner)
                 {
