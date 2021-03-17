@@ -98,38 +98,38 @@ public class Database : MonoBehaviour
         }
     }
 
-    public void UnlockNormal()
-    {
-        //10 coins for 3
-        playerWeaponUpgrade["NormalGun"] = true;
-        Debug.Log(playerWeaponUpgrade["NormalGun"]);
-    }
+    //public void UnlockNormal()
+    //{
+    //    //10 coins for 3
+    //    playerWeaponUpgrade["NormalGun"] = true;
+    //    Debug.Log(playerWeaponUpgrade["NormalGun"]);
+    //}
 
     public void UnlockQuintuple()
     {
         //20 coins for 5
-        if (playerWeaponUpgrade["NormalGun"] == true)
+        if (money > 20)
         {
             playerWeaponUpgrade["QuintupleGun"] = true;
             Debug.Log(playerWeaponUpgrade["QuintupleGun"]);
         }
         else
         {
-            Debug.Log("Please unlock normal gun first!");
+            Debug.Log("Not enough money");
         }
     }
 
     public void UnlockHomingMissile()
     {
         // prcos chance of shooting a missile
-        if (playerWeaponUpgrade["QuintupleGun"] == true)
+        if (playerWeaponUpgrade["QuintupleGun"] == true && money > 50)
         {
             playerWeaponUpgrade["HomingMissile"] = true;
             Debug.Log(playerWeaponUpgrade["QuintupleGun"]);
         }
         else
         {
-            Debug.Log("Please unlock quintuple gunfirst!");
+            Debug.Log("Please unlock quintuple gunfirst!, and check your balance");
         }
     }
 }
