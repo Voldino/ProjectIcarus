@@ -22,15 +22,15 @@ public class WeaponTreeOpener : MonoBehaviour
         }
     }
 
-    public void OpenButton4()
-    {
-        if (Normal != null)
-        {
-            bool isActive = Normal.activeSelf;
+    //public void OpenButton4()
+    //{
+    //    if (Normal != null)
+    //    {
+    //        bool isActive = Normal.activeSelf;
 
-            Normal.SetActive(!isActive);
-        }
-    }
+    //        Normal.SetActive(!isActive);
+    //    }
+    //}
 
     public void OpenButton5()
     {
