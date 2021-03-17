@@ -8,6 +8,9 @@ public class SkillTreeOpener : MonoBehaviour
     public GameObject AtkUp;
     public GameObject HpUp;
     public GameObject SpeedUp;
+    public GameObject AtkIcon;
+    public GameObject HpIcon;
+    public GameObject SpeedIcon;
 
     public void OpenPanel()
     {
@@ -49,6 +52,35 @@ public class SkillTreeOpener : MonoBehaviour
         }
     }
 
+    public void OpenIcon1()
+    {
+        if (AtkIcon != null)
+        {
+            bool isActive = AtkIcon.activeSelf;
+
+            AtkIcon.SetActive(!isActive);
+        }
+    }
+
+    public void OpenIcon2()
+    {
+        if (HpIcon != null)
+        {
+            bool isActive = HpIcon.activeSelf;
+
+            HpIcon.SetActive(!isActive);
+        }
+    }
+
+    public void OpenIcon3()
+    {
+        if (SpeedIcon != null)
+        {
+            bool isActive = SpeedIcon.activeSelf;
+
+            SpeedIcon.SetActive(!isActive);
+        }
+    }
 
 
 }

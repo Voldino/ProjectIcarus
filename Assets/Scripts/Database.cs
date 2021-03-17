@@ -58,11 +58,15 @@ public class Database : MonoBehaviour
 
     public void IncreaseAttack()
     {
-        if (flightTime >= 180 && increasedStats["Attack"] < 9) 
+        if (flightTime >= 180 && increasedStats["Attack"] < 9)
         {
             increasedStats["Attack"] += 3;
             flightTime -= 180;
             Debug.Log(increasedStats["Attack"]);
+        }
+        else 
+        {
+            Debug.Log("Need more flight time");
         }
     }
 
@@ -74,6 +78,10 @@ public class Database : MonoBehaviour
             flightTime -= 5;
             Debug.Log(increasedStats["HP"]);
         }
+        else
+        {
+            Debug.Log("Need more flight time");
+        }
     }
 
     public void IncreaseSpeed()
@@ -84,17 +92,22 @@ public class Database : MonoBehaviour
             flightTime -= 180;
             Debug.Log(increasedStats["Speed"]);
         }
+        else
+        {
+            Debug.Log("Need more flight time");
+        }
     }
 
     public void UnlockNormal()
     {
-        //10 coins for 3, 20 coins for 5
+        //10 coins for 3
         playerWeaponUpgrade["NormalGun"] = true;
         Debug.Log(playerWeaponUpgrade["NormalGun"]);
     }
 
     public void UnlockQuintuple()
     {
+        //20 coins for 5
         if (playerWeaponUpgrade["NormalGun"] == true)
         {
             playerWeaponUpgrade["QuintupleGun"] = true;
