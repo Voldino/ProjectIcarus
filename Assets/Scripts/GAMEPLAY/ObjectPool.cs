@@ -73,7 +73,6 @@ public class ObjectPool : MonoBehaviour
     {
         for (int i = 0; i < poolList.Count; i++)
         {
-            print("i");
             for (int j = 0; j < poolList[i].size; j++) {
                 Bullet objectToSpawn = poolDictionary[poolList[i].tag].Dequeue();
                 objectToSpawn.gameObject.SetActive(false);

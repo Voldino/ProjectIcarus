@@ -51,19 +51,25 @@ public class PlayerController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (Database.playerWeaponUpgrade["QuintupleGun"]) GetComponent<Ship>().setPattern(1);
+            if (Database.instance.playerWeaponUpgrade["QuintupleGun"]) GetComponent<Ship>().setPattern(1);
             else print("Second Weapon is unavailable");
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (Database.playerWeaponUpgrade["HomingMissile"]) 
+            if (Database.instance.playerWeaponUpgrade["HomingMissile"]) 
             {
                    Ship ship = GetComponent<Ship>();
                    ship.setPattern(0);
                    GetComponent<Ship>().setCurrentBullet(1);
             }
         }
+
+        else if (Input.GetKeyDown(KeyCode.H))
+        {
+            GetComponent<Ship>().setHP(100);
+        }
+ 
     }
     private void FixedUpdate()
     {

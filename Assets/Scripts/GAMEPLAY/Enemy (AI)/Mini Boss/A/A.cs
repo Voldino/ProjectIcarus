@@ -32,8 +32,7 @@ public class A : MonoBehaviour
     {
         transform.position += (Vector3)moveDirection.normalized * speed * Time.deltaTime;
 
-        if (hp <= 0.0f) DestroyA();
-    }
+     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -44,13 +43,7 @@ public class A : MonoBehaviour
     }
 
 
-    private void DestroyA()
-    {
-        SpawnerManager.activeShip.Remove(this.gameObject);
-        Database.money += 20;
-        Destroy(gameObject);
-        FindObjectOfType<CameraShake>().Shake(0.25f, 1);
-    }
+ 
 
     public void Hit(float damage)
     {

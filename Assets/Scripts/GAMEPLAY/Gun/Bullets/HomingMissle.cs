@@ -27,13 +27,21 @@ public class HomingMissle : MonoBehaviour
         same++;
     }
 
+
     void Start()
     {
-        OnEnable();
+        if (usedTargetList == null)
+        {
+            usedTargetList = new List<int>();
+        }
+        target = getTarget();
+        rb = GetComponent<Rigidbody2D>();
+        print("Same is " + same);
+        same++;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         newTarget();
         move();

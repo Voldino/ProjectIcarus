@@ -31,6 +31,8 @@ public class Ship : MonoBehaviour, HitableObejct
     {
         if (GetComponent<Player>()) GetComponent<Player>().GameOver(); 
         if (gameObject.GetComponent<Enemy_Controller>()) SpawnerManager.activeShip.Remove(this.gameObject);
+        if (GetComponent<A>()) Database.instance.money += 50;
+
 
         FindObjectOfType<CameraShake>().Shake(0.25f, 0.25f);
 

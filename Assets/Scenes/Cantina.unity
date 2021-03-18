@@ -677,7 +677,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2108907251}
+      - m_Target: {fileID: 1739277265}
         m_MethodName: UnlockHomingMissile
         m_Mode: 1
         m_Arguments:
@@ -1324,7 +1324,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2108907251}
+      - m_Target: {fileID: 1739277265}
         m_MethodName: IncreaseSpeed
         m_Mode: 1
         m_Arguments:
@@ -1696,7 +1696,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2108907251}
+      - m_Target: {fileID: 1739277265}
         m_MethodName: IncreaseAttack
         m_Mode: 1
         m_Arguments:
@@ -1907,7 +1907,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2108907251}
+      - m_Target: {fileID: 1739277265}
         m_MethodName: IncreaseHP
         m_Mode: 1
         m_Arguments:
@@ -2037,7 +2037,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2108907251}
+      - m_Target: {fileID: 1739277265}
         m_MethodName: UnlockQuintuple
         m_Mode: 1
         m_Arguments:
@@ -2098,6 +2098,7 @@ GameObject:
   - component: {fileID: 1739277261}
   - component: {fileID: 1739277260}
   - component: {fileID: 1739277264}
+  - component: {fileID: 1739277265}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2209,6 +2210,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b87d850d0f6215a4a812c96f37f4d6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1739277265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739277259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732320810094c3847920abcfba2544b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1740123840
@@ -2908,6 +2921,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710b4ac871c7d334c96f36b5d4bf5a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flightTime: 0
+  money: 0
 --- !u!1 &2119695434
 GameObject:
   m_ObjectHideFlags: 0

@@ -94,7 +94,6 @@ public class SpawnerManager : MonoBehaviour
 
     private void spawn() //Spawn enemies randomly according to phase
     {
-        print(activeShip.Count); 
         if (spawnCountDown >= spawnDelay || activeShip.Count == 0)
         {
             spawnCountDown = 0f; 
