@@ -1153,7 +1153,7 @@ MonoBehaviour:
   pattern: 0
   bulletSpeed: 6
   delayTime: 0.1
-  damage: 1
+  damage: 100
   currentBullet: 0
   muzzle: {fileID: 0}
 --- !u!114 &734609462

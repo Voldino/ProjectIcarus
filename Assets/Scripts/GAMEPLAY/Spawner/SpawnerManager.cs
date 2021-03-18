@@ -16,8 +16,8 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] private List<Spawner> leftSideSpawner;
     [SerializeField] private List<Spawner> aLLSpawner;
 
-    [SerializeField] private float spawnDelay = 1;
-    private float spawnCountDown = 0f;
+    [SerializeField] private float spawnDelay = 15;
+    private float spawnCountDown = 15;
     private float spawnPortalIn = 0;
     private int number_of_boss = 0;
 
@@ -39,7 +39,7 @@ public class SpawnerManager : MonoBehaviour
         spawnCountDown += 1 * Time.deltaTime;
         spawnPortalIn += 1 * Time.deltaTime ; 
         spawn();
-        if (spawnPortalIn >= 15 && number_of_boss == 0)
+        if (spawnPortalIn >= 300 && number_of_boss == 0)
         {
             spawnPortalIn = -99999999999f;
             openPortal();
@@ -94,6 +94,7 @@ public class SpawnerManager : MonoBehaviour
 
     private void spawn() //Spawn enemies randomly according to phase
     {
+        print(activeShip.Count); 
         if (spawnCountDown >= spawnDelay || activeShip.Count == 0)
         {
             spawnCountDown = 0f; 
