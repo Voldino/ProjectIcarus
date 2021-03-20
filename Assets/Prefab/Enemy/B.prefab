@@ -144,7 +144,6 @@ GameObject:
   - component: {fileID: 8785934258756478757}
   - component: {fileID: 238794393764006576}
   - component: {fileID: 7161850390203320723}
-  - component: {fileID: -2221203781760355940}
   - component: {fileID: 1770694924340831721}
   - component: {fileID: -4985162548103018064}
   m_Layer: 0
@@ -252,24 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9187d9401fda54fa28b6203fef8eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
   hp: 1
   speed: 0.1
---- !u!114 &-2221203781760355940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8785934258756478756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9187d9401fda54fa28b6203fef8eb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  hp: 1
-  speed: 0
 --- !u!60 &1770694924340831721
 PolygonCollider2D:
   m_ObjectHideFlags: 0
