@@ -29,12 +29,15 @@ public class Ship : MonoBehaviour, HitableObejct
 
     private void DestroyShip()
     {
-        if (GetComponent<Player>()) GetComponent<Player>().GameOver(); 
-        if (gameObject.GetComponent<Enemy_Controller>()) SpawnerManager.activeShip.Remove(this.gameObject);
-        if (GetComponent<A>()) Database.instance.money += 50;
+        if (GetComponent<Player>()) GetComponent<Player>().GameOver();
+        else if (GetComponent<A>())
+        {
+            FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().number_of_boss -= 1;
+            Database.instance.money += 50;
+        }
+        else if (gameObject.GetComponent<Enemy_Controller>()) SpawnerManager.activeShip.Remove(this.gameObject);
 
-
-        FindObjectOfType<CameraShake>().Shake(0.25f, 0.25f);
+         FindObjectOfType<CameraShake>().Shake(0.25f, 0.25f);
 
         Destroy(gameObject);
         

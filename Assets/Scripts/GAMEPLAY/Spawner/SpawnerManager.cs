@@ -19,7 +19,7 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] private float spawnDelay = 15;
     private float spawnCountDown = 15;
     private float spawnPortalIn = 0;
-    private int number_of_boss = 0;
+    public int number_of_boss = 0;
 
     private GameObject Portal;
 
@@ -39,7 +39,7 @@ public class SpawnerManager : MonoBehaviour
         spawnCountDown += 1 * Time.deltaTime;
         spawnPortalIn += 1 * Time.deltaTime ; 
         spawn();
-        if (spawnPortalIn >= 300 && number_of_boss == 0)
+        if (spawnPortalIn >= 15 && number_of_boss <= 0)
         {
             spawnPortalIn = -99999999999f;
             openPortal();
