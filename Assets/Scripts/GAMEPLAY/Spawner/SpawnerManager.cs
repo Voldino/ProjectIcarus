@@ -129,6 +129,11 @@ public class SpawnerManager : MonoBehaviour
                     }
                 }
             }
+            else if (Phase == 3)
+            {
+                openPortal(); 
+                //spawn power up
+            }
             else if (Phase == 4)
             {
                 int i = 0;
