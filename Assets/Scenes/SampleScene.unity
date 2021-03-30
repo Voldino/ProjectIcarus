@@ -1204,7 +1204,7 @@ MonoBehaviour:
   pattern: 0
   bulletSpeed: 6
   delayTime: 0.1
-  damage: 1
+  damage: 1000
   currentBullet: 0
   muzzle: {fileID: 0}
 --- !u!114 &734609462
@@ -2008,6 +2008,8 @@ MonoBehaviour:
   - {fileID: 239968525070855481, guid: 8c5102c1ef539434e8dc9f4e2e44b28e, type: 3}
   - {fileID: 8785934258756478756, guid: 6a0bdb3d82d9ef74f8ffc819763f571e, type: 3}
   - {fileID: 3582426582939521760, guid: de45ee4f4a891734cb7d05dbba1b0827, type: 3}
+  powerUps:
+  - {fileID: 8250992347972728305, guid: 63ea16f6f8c7e1842980f9a80d22a119, type: 3}
   topSideSpawner:
   - {fileID: 375022394}
   - {fileID: 68791642}
@@ -2046,6 +2048,7 @@ MonoBehaviour:
   - {fileID: 1902547003}
   - {fileID: 2071129983}
   spawnDelay: 15
+  number_of_boss: 0
 --- !u!4 &1301257942
 Transform:
   m_ObjectHideFlags: 0
