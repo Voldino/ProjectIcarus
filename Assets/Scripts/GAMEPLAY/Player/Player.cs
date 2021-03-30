@@ -92,5 +92,6 @@ public class Player : MonoBehaviour
         //fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
+    
 
 }
