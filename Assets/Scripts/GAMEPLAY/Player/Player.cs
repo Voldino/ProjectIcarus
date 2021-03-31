@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     public void IncreaseAttack()
     {
         Ship ship = gameObject.GetComponent<Ship>();
-        ship.setDamage(ship.getDamage()+100);
+        ship.setDamage(ship.getDamage()+1);
     }
 
 

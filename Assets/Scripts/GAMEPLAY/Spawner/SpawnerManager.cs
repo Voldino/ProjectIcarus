@@ -8,6 +8,7 @@ public class SpawnerManager : MonoBehaviour
 
     [SerializeField] private List<Ship> ship_list;
     [SerializeField] private List<GameObject> obstacles_list;
+    [SerializeField] private List<GameObject> minibosses_list;
     [SerializeField] private List<GameObject> bosses_list;
     [SerializeField] private List<GameObject> powerUps;
 
@@ -122,7 +123,7 @@ public class SpawnerManager : MonoBehaviour
                     i++;
                     if (number_of_boss == 0 && i == 3)
                     {
-                        spawner.spawn(bosses_list[Random.Range(0, bosses_list.Count - 1)]); // the last one is the final boss, so it isn't included, Noted that Random.Range(x,y) will return x to y-1 when x and y is int)
+                        spawner.spawn(minibosses_list[Random.Range(0, minibosses_list.Count - 1)]); // the last one is the final boss, so it isn't included, Noted that Random.Range(x,y) will return x to y-1 when x and y is int)
                         number_of_boss++;
                     }
 

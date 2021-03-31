@@ -98,9 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9187d9401fda54fa28b6203fef8eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  hp: 1
-  speed: 0.1
 --- !u!114 &239968525070855462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8b6799be5e48f448b4c625f1a6db42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 600
+  HP: 300
   Arrmor: 0
   Speed: 0.15
   pattern: -1

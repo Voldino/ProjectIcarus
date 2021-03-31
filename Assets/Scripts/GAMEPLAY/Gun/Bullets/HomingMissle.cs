@@ -23,7 +23,7 @@ public class HomingMissle : MonoBehaviour
         }
         target = getTarget();
         rb = GetComponent<Rigidbody2D>();
-        print("Same is " +same);
+
         same++;
     }
 
