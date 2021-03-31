@@ -58,5 +58,4 @@ public class Character2DController : MonoBehaviour
         transform.localScale = characterScale;
     }
 
-     
 }
