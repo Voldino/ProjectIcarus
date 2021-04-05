@@ -6,6 +6,8 @@ public class WeaponTreeMachine : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] Array;
+    [SerializeField]
+    private GameObject Text;
 
 
     private bool allowOpen = false;
@@ -21,6 +23,7 @@ public class WeaponTreeMachine : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player") {
             allowOpen = true;
+            Text.SetActive(true);
         }
     }
 
@@ -29,6 +32,7 @@ public class WeaponTreeMachine : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             allowOpen = false;
+            Text.SetActive(false);
         }
     }
 
