@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    public enum effectPower {ATTACK,SPEPED };
+    public enum effectPower {ATTACK,HEALER };
     public effectPower effect = effectPower.ATTACK;
 
     private void PickUp(Player player)
@@ -12,6 +12,10 @@ public class PowerUp : MonoBehaviour
         if (effect == effectPower.ATTACK)
         { 
             player.PowerUp = player.IncreaseAttack;
+        }
+        else if (effect == effectPower.HEALER)
+        {
+            player.PowerUp = player.Healer; 
         }
         Destroy(gameObject); 
     }

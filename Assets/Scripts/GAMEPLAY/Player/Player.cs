@@ -61,6 +61,13 @@ public class Player : MonoBehaviour
         ship.setDamage(ship.getDamage()+1);
     }
 
+    public void Healer()
+    {
+        Ship ship = gameObject.GetComponent<Ship>();
+        ship.setHP(slider.maxValue * 2);
+        SetMaxHealth(ship.getHP());
+    }
+
 
     private void OutOfBount()
     {
