@@ -123,7 +123,9 @@ public class SpawnerManager : MonoBehaviour
                     i++;
                     if (number_of_boss == 0 && i == 3)
                     {
-                        spawner.spawn(minibosses_list[Random.Range(0, minibosses_list.Count - 1)]); // the last one is the final boss, so it isn't included, Noted that Random.Range(x,y) will return x to y-1 when x and y is int)
+                        int a = Random.Range(0, minibosses_list.Count);
+                        Debug.Log(a);
+                        spawner.spawn(minibosses_list[a]); // the last one is the final boss, so it isn't included, Noted that Random.Range(x,y) will return x to y-1 when x and y is int)
                         number_of_boss++;
                     }
 
@@ -139,7 +141,6 @@ public class SpawnerManager : MonoBehaviour
                     openPortal();
                     int k = Random.Range(0, powerUps.Count);
                     Instantiate(powerUps[k], Vector2.zero, powerUps[k].transform.rotation);
-                    print("X");
                     spawnCountDown = -1000;
             }
             else if (Phase == 4)
@@ -150,7 +151,9 @@ public class SpawnerManager : MonoBehaviour
                     i++;
                     if (number_of_boss == 0 && i == 3)
                     {
-                        spawner.spawn(bosses_list[bosses_list.Count - 1]); // the last one is the final boss, so it isn't included, Noted that Random.Range(x,y) will return x to y-1 when x and y is int)
+                        int a = Random.Range(0, bosses_list.Count);
+                        Debug.Log(a);
+                        spawner.spawn(bosses_list[a]); // the last one is the final boss, so it isn't included, Noted that Random.Range(x,y) will return x to y-1 when x and y is int)
                         number_of_boss++;
                     }
 

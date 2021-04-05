@@ -65,9 +65,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyDown(KeyCode.H))
+        else if (Input.GetKeyDown(KeyCode.I))
         {
-            GetComponent<Ship>().setHP(100);
+            GetComponent<Ship>().setDamage(99999);
         }
  
     }
