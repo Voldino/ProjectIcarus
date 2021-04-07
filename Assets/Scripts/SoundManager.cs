@@ -42,11 +42,8 @@ public class SoundManager : MonoBehaviour
     // Play a single clip through the sound effects source.
     public void Play(string tag)
     {
-        print("A");
-        sounds[tag].Play() ;
-        AudioSource audio = sounds[tag] ;
-        audio.Play(); 
-        
+        AudioSource audio = sounds[tag];
+        audio.Play();
     }
 
  

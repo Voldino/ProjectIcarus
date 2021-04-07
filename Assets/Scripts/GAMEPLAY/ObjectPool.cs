@@ -60,6 +60,7 @@ public class ObjectPool : MonoBehaviour
             objectToSpawn.gameObject.SetActive(true);
             objectToSpawn.transform.position = position;
             objectToSpawn.transform.rotation = rotation;
+            SoundManager.Instance.Play("Shoot");
 
             poolDictionary[tag].Enqueue(objectToSpawn);
 
