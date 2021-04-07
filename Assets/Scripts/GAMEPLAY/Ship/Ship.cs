@@ -17,10 +17,7 @@ public class Ship : MonoBehaviour, HitableObejct
    
 
 
-    private void Start()
-    {
-
-    }
+ 
     private void Update()
     {
         if (HP <= 0) DestroyShip();
