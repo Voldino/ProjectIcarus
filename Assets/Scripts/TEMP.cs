@@ -70,6 +70,7 @@ public class TEMP : MonoBehaviour
         //20 coins for 5
         if (Database.instance.money > 20)
         {
+            Database.instance.money -= 20; 
             Database.instance.playerWeaponUpgrade["QuintupleGun"] = true;
             print(Database.instance.playerWeaponUpgrade["QuintupleGun"]);
             Debug.Log(Database.instance.playerWeaponUpgrade["QuintupleGun"]);
@@ -85,6 +86,7 @@ public class TEMP : MonoBehaviour
         // prcos chance of shooting a missile
         if (Database.instance.playerWeaponUpgrade["QuintupleGun"] == true && Database.instance.money > 50)
         {
+            Database.instance.money -= 50;
             Database.instance.playerWeaponUpgrade["HomingMissile"] = true;
             Debug.Log(Database.instance.playerWeaponUpgrade["QuintupleGun"]);
         }

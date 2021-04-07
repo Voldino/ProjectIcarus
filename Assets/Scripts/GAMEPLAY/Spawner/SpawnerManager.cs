@@ -82,7 +82,7 @@ public class SpawnerManager : MonoBehaviour
 
         if (Phase == 5)
         {
-            SceneManager.LoadScene(0);  
+            SceneManager.LoadScene(1);  
         }
 
         activeShip.Clear();

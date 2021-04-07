@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot(string tag,Transform muzzleTransform,int pattern)
     {
+        SoundManager.Instance.Play("Shoot");
         if (pattern == 0) pattern0(tag, muzzleTransform);
         else if (pattern == 1) pattern1(tag, muzzleTransform); 
     }
