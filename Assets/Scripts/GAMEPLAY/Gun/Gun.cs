@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
     public void Shoot(string tag,Transform muzzleTransform,int pattern)
     {
         if (pattern == 0) pattern0(tag, muzzleTransform);
-        else if (pattern == 1) pattern1(tag, muzzleTransform); 
+        else if (pattern == 1) pattern1(tag, muzzleTransform);
     }
 
     private void pattern0(string tag, Transform muzzleTransform)
@@ -51,8 +51,7 @@ public class Gun : MonoBehaviour
 
     private Bullet createBullet(string tag ,Vector3 position, Quaternion rotation)
     {
-        Bullet newBullet = ObjectPool.PoolInstance.SpawnFromPool(tag, position, rotation); 
-
+        Bullet newBullet = ObjectPool.PoolInstance.SpawnFromPool(tag, position, rotation);
         return newBullet;
     }
 
