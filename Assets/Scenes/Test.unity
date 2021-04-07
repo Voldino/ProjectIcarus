@@ -1209,6 +1209,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7728601268861408854, guid: 457f60142926f174c846c70a07ba056f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7871675189019324196, guid: 457f60142926f174c846c70a07ba056f,
         type: 3}
       propertyPath: m_IsActive
@@ -1254,6 +1259,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 585487608}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &585487612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9210437213756234963, guid: 457f60142926f174c846c70a07ba056f,
+    type: 3}
+  m_PrefabInstance: {fileID: 585487608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &585487613 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7728601267685324910, guid: 457f60142926f174c846c70a07ba056f,
@@ -1272,6 +1283,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732320810094c3847920abcfba2544b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &585487615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9191819484531689299, guid: 457f60142926f174c846c70a07ba056f,
+    type: 3}
+  m_PrefabInstance: {fileID: 585487608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &585487616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7111329104513570949, guid: 457f60142926f174c846c70a07ba056f,
+    type: 3}
+  m_PrefabInstance: {fileID: 585487608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &585487617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4219823513280680480, guid: 457f60142926f174c846c70a07ba056f,
+    type: 3}
+  m_PrefabInstance: {fileID: 585487608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &585487618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6253575560236404339, guid: 457f60142926f174c846c70a07ba056f,
+    type: 3}
+  m_PrefabInstance: {fileID: 585487608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &601931210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,6 +1431,11 @@ MonoBehaviour:
   - {fileID: 737817603}
   - {fileID: 1091995366}
   - {fileID: 1307600885}
+  - {fileID: 585487617}
+  - {fileID: 585487616}
+  - {fileID: 585487615}
+  - {fileID: 585487612}
+  - {fileID: 585487618}
   Text: {fileID: 585487611}
 --- !u!61 &601931215
 BoxCollider2D:
