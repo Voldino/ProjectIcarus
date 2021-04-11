@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
 
     public void GameOver()
     {
+
         SceneManager.LoadScene(1);
 
     }
