@@ -68,7 +68,7 @@ public class TEMP : MonoBehaviour
     public void UnlockQuintuple()
     {
         //20 coins for 5
-        if (Database.instance.money > 20)
+        if (Database.instance.money >= 20)
         {
             Database.instance.money -= 20; 
             Database.instance.playerWeaponUpgrade["QuintupleGun"] = true;
@@ -84,7 +84,7 @@ public class TEMP : MonoBehaviour
     public void UnlockHomingMissile()
     {
         // prcos chance of shooting a missile
-        if (Database.instance.playerWeaponUpgrade["QuintupleGun"] == true && Database.instance.money > 50)
+        if (Database.instance.playerWeaponUpgrade["QuintupleGun"] == true && Database.instance.money >= 50)
         {
             Database.instance.money -= 50;
             Database.instance.playerWeaponUpgrade["HomingMissile"] = true;

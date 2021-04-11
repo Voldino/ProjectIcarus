@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour
     }
 
     [SerializeField] List<SoundClass> soundsList;
-    private Dictionary<string, AudioSource> sounds = new Dictionary<string, AudioSource>() ; 
+    private Dictionary<string, List<AudioSource> > sounds = new Dictionary<string, List<AudioSource>>() ; 
 
    // Singleton instance.
    public static SoundManager Instance = null;
@@ -25,8 +25,15 @@ public class SoundManager : MonoBehaviour
         // If there is not already an instance of SoundManager, set it to this.
         if (Instance == null)
         {
-            
-            for (int i = 0; i < soundsList.Count; i++) sounds.Add(soundsList[i].tag, soundsList[i].audioSource); 
+
+            for (int i = 0; i < soundsList.Count; i++)
+            {
+                for (int j = 0; j < 10 ; j++)
+                {
+                    AudioSource audioS = Instantiate(soundsList[i].audioSource);
+                    //sounds.Add(soundsList[i].tag,audioS);
+                }
+            }
             Instance = this;
         }
         //If an instance already exists, destroy whatever this object is to enforce the singleton.
@@ -42,8 +49,10 @@ public class SoundManager : MonoBehaviour
     // Play a single clip through the sound effects source.
     public void Play(string tag)
     {
+        
+        /*Instantiate(sounds[tag], sounds[tag].transform);
         AudioSource audio = sounds[tag];
-        audio.Play();
+        audio.Play();*/
     }
 
  

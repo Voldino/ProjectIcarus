@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<Ship>().setDamage(99999);
         }
+
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            Database.instance.money += 1000;
+        }
  
     }
     private void FixedUpdate()
