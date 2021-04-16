@@ -2239,7 +2239,7 @@ GameObject:
   - component: {fileID: 929352341}
   - component: {fileID: 929352340}
   m_Layer: 0
-  m_Name: Database
+  m_Name: DatabaseManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2254,11 +2254,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 929352339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 710b4ac871c7d334c96f36b5d4bf5a62, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d16da0e716f67c48bc0bc01edad9512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flightTime: 0
-  money: 0
+  objects_to_save: []
+  database: {fileID: 11400000, guid: 026a2c90e7075ae4fa67fbb8c75ce070, type: 2}
 --- !u!4 &929352341
 Transform:
   m_ObjectHideFlags: 0

@@ -18,11 +18,11 @@ public class TEMP : MonoBehaviour
 
     public void IncreaseAttack()
     {
-        if (Database.instance.flightTime >= 180 && Database.instance.increasedStats["Attack"] < 9)
+        if (DatabaseManager.instance.database.flightTime >= 180 && DatabaseManager.instance.database.increasedStats["Attack"] < 9)
         {
-            Database.instance.increasedStats["Attack"] += 3;
-            Database.instance.flightTime -= 180;
-            Debug.Log(Database.instance.increasedStats["Attack"]);
+            DatabaseManager.instance.database.increasedStats["Attack"] += 3;
+            DatabaseManager.instance.database.flightTime -= 180;
+            Debug.Log(DatabaseManager.instance.database.increasedStats["Attack"]);
         }
         else
         {
@@ -32,11 +32,11 @@ public class TEMP : MonoBehaviour
 
     public void IncreaseHP()
     {
-        if (Database.instance.flightTime >= 180 && Database.instance.increasedStats["Attack"] < 9)
+        if (DatabaseManager.instance.database.flightTime >= 180 && DatabaseManager.instance.database.increasedStats["Attack"] < 9)
         {
-            Database.instance.increasedStats["HP"] += 3;
-            Database.instance.flightTime -= 5;
-            Debug.Log(Database.instance.increasedStats["HP"]);
+            DatabaseManager.instance.database.increasedStats["HP"] += 3;
+            DatabaseManager.instance.database.flightTime -= 5;
+            Debug.Log(DatabaseManager.instance.database.increasedStats["HP"]);
         }
         else
         {
@@ -46,11 +46,11 @@ public class TEMP : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        if (Database.instance.flightTime >= 180 && Database.instance.increasedStats["Attack"] < 9)
+        if (DatabaseManager.instance.database.flightTime >= 180 && DatabaseManager.instance.database.increasedStats["Attack"] < 9)
         {
-            Database.instance.increasedStats["Speed"] += 3;
-            Database.instance.flightTime -= 180;
-            Debug.Log(Database.instance.increasedStats["Speed"]);
+            DatabaseManager.instance.database.increasedStats["Speed"] += 3;
+            DatabaseManager.instance.database.flightTime -= 180;
+            Debug.Log(DatabaseManager.instance.database.increasedStats["Speed"]);
         }
         else
         {
@@ -68,12 +68,12 @@ public class TEMP : MonoBehaviour
     public void UnlockQuintuple()
     {
         //20 coins for 5
-        if (Database.instance.money >= 20)
+        if (DatabaseManager.instance.database.money >= 20)
         {
-            Database.instance.money -= 20; 
-            Database.instance.playerWeaponUpgrade["QuintupleGun"] = true;
-            print(Database.instance.playerWeaponUpgrade["QuintupleGun"]);
-            Debug.Log(Database.instance.playerWeaponUpgrade["QuintupleGun"]);
+            DatabaseManager.instance.database.money -= 20;
+            DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"] = true;
+            print(DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"]);
+            Debug.Log(DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"]);
         }
         else
         {
@@ -84,11 +84,11 @@ public class TEMP : MonoBehaviour
     public void UnlockHomingMissile()
     {
         // prcos chance of shooting a missile
-        if (Database.instance.playerWeaponUpgrade["QuintupleGun"] == true && Database.instance.money >= 50)
+        if (DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"] == true && DatabaseManager.instance.database.money >= 50)
         {
-            Database.instance.money -= 50;
-            Database.instance.playerWeaponUpgrade["HomingMissile"] = true;
-            Debug.Log(Database.instance.playerWeaponUpgrade["QuintupleGun"]);
+            DatabaseManager.instance.database.money -= 50;
+            DatabaseManager.instance.database.playerWeaponUpgrade["HomingMissile"] = true;
+            Debug.Log(DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"]);
         }
         else
         {

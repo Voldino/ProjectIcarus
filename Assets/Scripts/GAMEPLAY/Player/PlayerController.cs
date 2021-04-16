@@ -51,13 +51,13 @@ public class PlayerController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (Database.instance.playerWeaponUpgrade["QuintupleGun"]) GetComponent<Ship>().setPattern(1);
+            if (DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"]) GetComponent<Ship>().setPattern(1);
             else print("Second Weapon is unavailable");
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (Database.instance.playerWeaponUpgrade["HomingMissile"]) 
+            if (DatabaseManager.instance.database.playerWeaponUpgrade["HomingMissile"]) 
             {
                    Ship ship = GetComponent<Ship>();
                    ship.setPattern(0);
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.M))
         {
-            Database.instance.money += 1000;
+            DatabaseManager.instance.database.money += 1000;
         }
  
     }

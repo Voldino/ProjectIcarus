@@ -12,6 +12,6 @@ public class ShowMoney : MonoBehaviour
 
     private void Update()
     {
-        t.text = "Money : " + Database.instance.money; 
+        t.text = "Money : " + DatabaseManager.instance.database.money; 
     }
 }

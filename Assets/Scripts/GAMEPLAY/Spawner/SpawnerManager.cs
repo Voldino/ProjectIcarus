@@ -82,6 +82,7 @@ public class SpawnerManager : MonoBehaviour
 
         if (Phase == 5)
         {
+            DatabaseManager.instance.CallSaveData();
             SceneManager.LoadScene(1); 
         }
 
