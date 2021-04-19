@@ -25,7 +25,7 @@ public class SoundManager : MonoBehaviour
         // If there is not already an instance of SoundManager, set it to this.
         if (Instance == null)
         {
-
+            DontDestroyOnLoad(gameObject);
             for (int i = 0; i < soundsList.Count; i++)
             {
                 for (int j = 0; j < 10 ; j++)
@@ -37,13 +37,13 @@ public class SoundManager : MonoBehaviour
             Instance = this;
         }
         //If an instance already exists, destroy whatever this object is to enforce the singleton.
-        else if (Instance != this)
+        else  
         {
             Destroy(gameObject);
         }
 
         //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
-        DontDestroyOnLoad(gameObject);
+
     }
 
     // Play a single clip through the sound effects source.

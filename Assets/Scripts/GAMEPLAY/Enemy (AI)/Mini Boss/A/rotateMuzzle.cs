@@ -17,7 +17,6 @@ public class rotateMuzzle : MonoBehaviour
     }
     private IEnumerator rotateAround()
     {
-        int i = 0;
         while (true)
         {
             if (gameObject.transform.rotation.z > 25 && rotateAmount > 0) rotateAmount = -rotateAmount;

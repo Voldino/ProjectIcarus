@@ -11,11 +11,7 @@ public class Database : ScriptableObject
 
     public float flightTime;
     public int money;
- 
-    void Start()
-    {
-
-    }
+  
 
     // Update is called once per frame
     void Update()

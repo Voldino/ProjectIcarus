@@ -52,16 +52,9 @@ public class SpawnerManager : MonoBehaviour
             spawnPortalIn = -99999999999f;
             openPortal();
         }
-        
-
-        DeactiveShip();
     }
 
-    private void DeactiveShip()
-    {
  
-
-    }
 
     public void nextPhase(int increasePhase) //Used for increaseing phase 
     {
@@ -83,7 +76,7 @@ public class SpawnerManager : MonoBehaviour
         if (Phase == 5)
         {
             DatabaseManager.instance.CallSaveData();
-            SceneManager.LoadScene(1); 
+            TransitionManager.instance.Sc_Cantina();
         }
 
         activeShip.Clear();
@@ -125,7 +118,6 @@ public class SpawnerManager : MonoBehaviour
                     if (number_of_boss == 0 && i == 3)
                     {
                         int a = Random.Range(0, minibosses_list.Count);
-                        Debug.Log(a);
                         spawner.spawn(minibosses_list[a]); // the last one is the final boss, so it isn't included, Noted that Random.Range(x,y) will return x to y-1 when x and y is int)
                         number_of_boss++;
                     }

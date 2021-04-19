@@ -7,7 +7,7 @@ public class ChangeScreen : MonoBehaviour
 {
     public void playGame() 
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        TransitionManager.instance.Sc_GamePlay();
         SoundManager.Instance.Play("NormalStages");
     }
 
