@@ -15,12 +15,13 @@ public class Ship : MonoBehaviour, HitableObejct
     [SerializeField] private int currentBullet = 0 ;
     [HideInInspector] public Transform muzzle;
    
-
-
  
     private void Update()
     {
-        if (HP <= 0) DestroyShip();
+        if (HP <= 0) {
+            SoundManager.Instance.Play("Dead");
+            DestroyShip();
+        } 
 
     }
 
