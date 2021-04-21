@@ -16,7 +16,8 @@ public class Character2DController : MonoBehaviour
         anim = GetComponent<Animator>();
         characterScale = transform.localScale;
         characterScaleX = characterScale.x;
-        
+        SoundManager.Instance.Stop("NormalStages");
+        SoundManager.Instance.Play("CantinaTune"); 
     }
 
     // Update is called once per frame

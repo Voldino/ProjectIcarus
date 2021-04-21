@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         loadFromDatabase();
+        SoundManager.Instance.Stop("CantinaTune");
+        SoundManager.Instance.Play("NormalStages") ; 
         SetMaxHealth(GetComponent<Ship>().getHP());
     }
 
