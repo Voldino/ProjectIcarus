@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DatabaseManager.instance.database.flightTime += 1 * Time.deltaTime;
+
         OutOfBount();
         slider.value = GetComponent<Ship>().getHP() ;
         if (PowerUp != null)

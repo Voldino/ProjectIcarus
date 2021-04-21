@@ -9,17 +9,17 @@ public class DatabaseManager : SaveGame
         DATABASE_PATH
     }
 
-    public class Constant
+    /*public class Constant
     {
         public static Dictionary<int, string> PATH_DICT = new Dictionary<int, string>()
         {
-            { (int) PATH.DATABASE_PATH  ,  "/game_save/database"},
+            { (int) PATH.DATABASE_PATH  ,  },
         };
-    }
+    }*/
 
     public List<ScriptableObject> objects_to_save;
 
-    public Database database;
+    public Database database  ;
 
     #region singleton 
     static public DatabaseManager instance = null;
@@ -27,11 +27,28 @@ public class DatabaseManager : SaveGame
     {
         if (instance == null)
         {
-
             objects_to_save.Add(database);
 
+            CallLoadData();
+
+            
+            if ( database.FirstTime == true)
+            {
+                Debug.Log("NEW");
+                database.setPlayerWeaponUpgrade("NormalGun", false);
+                database.setPlayerWeaponUpgrade("QuintupleGun", false);
+                database.setPlayerWeaponUpgrade("HomingMissile", false);
+
+                database.money = 0 ;
+                database.flightTime = 0; 
+
+                CallSaveData();
+
+                database.FirstTime = false; 
+            }
+
             instance = this;
- 
+
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -57,7 +74,7 @@ public class DatabaseManager : SaveGame
     {
         for (int i = 0; i < objects_to_save.Count; i++)
         {
-            LoadData<ScriptableObject>(objects_to_save[i], Constant.PATH_DICT[i]);
+            LoadData<ScriptableObject>(objects_to_save[i], "/game_save/database");
         }
     }
 
@@ -65,7 +82,7 @@ public class DatabaseManager : SaveGame
     {
         for (int i = 0; i < objects_to_save.Count; i++)
         {
-            SaveData<ScriptableObject>(objects_to_save[i], Constant.PATH_DICT[i]);
+            SaveData<ScriptableObject>(objects_to_save[i], "/game_save/database");
         }
     }
 }

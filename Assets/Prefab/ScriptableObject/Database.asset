@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710b4ac871c7d334c96f36b5d4bf5a62, type: 3}
   m_Name: Database
   m_EditorClassIdentifier: 
+  FirstTime: 1
+  NormalGun: 0
+  QuintupleGun: 0
+  HomingMissile: 0
+  Attack: 0
+  Speed: 0
+  HP: 0
   flightTime: 0
-  money: 250
+  money: 0

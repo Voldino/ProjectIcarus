@@ -24,9 +24,7 @@ public class TransitionManager : MonoBehaviour
     private IEnumerator LoadThisSc(int index)
     {
         panel_Animator.SetTrigger("PUSH");
-        print("A");
         yield return new WaitForSeconds(1.1f);
-        print("B");
         panel_Animator.SetTrigger("PULL");
 
         SceneManager.LoadScene(index);

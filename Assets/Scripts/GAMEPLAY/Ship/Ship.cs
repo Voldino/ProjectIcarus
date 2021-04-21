@@ -26,7 +26,7 @@ public class Ship : MonoBehaviour, HitableObejct
 
     private void DestroyShip()
     {
-        SoundManager.Instance.Play("Dead"); 
+            SoundManager.Instance.Play("Dead"); 
 
         if (GetComponent<Player>()) GetComponent<Player>().GameOver();
         else if (GetComponent<A>())

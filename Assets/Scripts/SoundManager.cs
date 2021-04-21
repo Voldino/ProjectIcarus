@@ -25,13 +25,12 @@ public class SoundManager : MonoBehaviour
         // If there is not already an instance of SoundManager, set it to this.
         if (Instance == null)
         {
-            DontDestroyOnLoad(gameObject);
             for (int i = 0; i < soundsList.Count; i++)
             {
-                print(soundsList[i].tag); 
                 sounds.Add(soundsList[i].tag,soundsList[i].audioSource);
                 
             }
+            DontDestroyOnLoad(gameObject);
             Instance = this;
         }
         //If an instance already exists, destroy whatever this object is to enforce the singleton.

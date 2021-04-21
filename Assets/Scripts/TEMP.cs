@@ -18,11 +18,10 @@ public class TEMP : MonoBehaviour
 
     public void IncreaseAttack()
     {
-        if (DatabaseManager.instance.database.flightTime >= 180 && DatabaseManager.instance.database.increasedStats["Attack"] < 9)
+        if (DatabaseManager.instance.database.flightTime >= 180 && DatabaseManager.instance.database.getIncreasedStats("Attack") < 9)
         {
-            DatabaseManager.instance.database.increasedStats["Attack"] += 3;
+            DatabaseManager.instance.database.increasedStats("Attack",1) ;
             DatabaseManager.instance.database.flightTime -= 180;
-            Debug.Log(DatabaseManager.instance.database.increasedStats["Attack"]);
         }
         else
         {
@@ -32,11 +31,10 @@ public class TEMP : MonoBehaviour
 
     public void IncreaseHP()
     {
-        if (DatabaseManager.instance.database.flightTime >= 180 && DatabaseManager.instance.database.increasedStats["Attack"] < 9)
+        if (DatabaseManager.instance.database.flightTime >= 180 && DatabaseManager.instance.database.getIncreasedStats("HP") < 9)
         {
-            DatabaseManager.instance.database.increasedStats["HP"] += 3;
+            DatabaseManager.instance.database.increasedStats("HP",1) ;
             DatabaseManager.instance.database.flightTime -= 5;
-            Debug.Log(DatabaseManager.instance.database.increasedStats["HP"]);
         }
         else
         {
@@ -46,11 +44,10 @@ public class TEMP : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        if (DatabaseManager.instance.database.flightTime >= 180 && DatabaseManager.instance.database.increasedStats["Attack"] < 9)
+        if (DatabaseManager.instance.database.flightTime >= 180 && DatabaseManager.instance.database.getIncreasedStats("Speed")< 9)
         {
-            DatabaseManager.instance.database.increasedStats["Speed"] += 3;
+            DatabaseManager.instance.database.increasedStats("Speed",1) ;
             DatabaseManager.instance.database.flightTime -= 180;
-            Debug.Log(DatabaseManager.instance.database.increasedStats["Speed"]);
         }
         else
         {
@@ -58,22 +55,13 @@ public class TEMP : MonoBehaviour
         }
     }
 
-    //public void UnlockNormal()
-    //{
-    //    //10 coins for 3
-    //    playerWeaponUpgrade["NormalGun"] = true;
-    //    Debug.Log(playerWeaponUpgrade["NormalGun"]);
-    //}
-
     public void UnlockQuintuple()
     {
         //20 coins for 5
         if (DatabaseManager.instance.database.money >= 20)
         {
             DatabaseManager.instance.database.money -= 20;
-            DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"] = true;
-            print(DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"]);
-            Debug.Log(DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"]);
+            DatabaseManager.instance.database.setPlayerWeaponUpgrade("QuintupleGun", true);
         }
         else
         {
@@ -84,11 +72,11 @@ public class TEMP : MonoBehaviour
     public void UnlockHomingMissile()
     {
         // prcos chance of shooting a missile
-        if (DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"] == true && DatabaseManager.instance.database.money >= 50)
+        if (DatabaseManager.instance.database.playerWeaponUpgrade("QuintupleGun") && DatabaseManager.instance.database.money >= 50)
         {
             DatabaseManager.instance.database.money -= 50;
-            DatabaseManager.instance.database.playerWeaponUpgrade["HomingMissile"] = true;
-            Debug.Log(DatabaseManager.instance.database.playerWeaponUpgrade["QuintupleGun"]);
+            DatabaseManager.instance.database.setPlayerWeaponUpgrade("HomingMissile",true) ;
+            Debug.Log(DatabaseManager.instance.database.playerWeaponUpgrade("QuintupleGun"));
         }
         else
         {
