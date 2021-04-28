@@ -14,7 +14,9 @@ public class Ship : MonoBehaviour, HitableObejct
     [SerializeField] private float damage = 1f;
     [SerializeField] private int currentBullet = 0 ;
     [HideInInspector] public Transform muzzle;
-   
+
+    /*For Helix bullet*/
+    private bool up; 
  
     private void Update()
     {
@@ -26,7 +28,7 @@ public class Ship : MonoBehaviour, HitableObejct
 
     private void DestroyShip()
     {
-            SoundManager.Instance.Play("Dead"); 
+        SoundManager.Instance.Play("Dead"); 
 
         if (GetComponent<Player>()) GetComponent<Player>().GameOver();
         else if (GetComponent<A>())

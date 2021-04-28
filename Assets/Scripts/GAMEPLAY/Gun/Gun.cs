@@ -4,20 +4,22 @@ public class Gun : MonoBehaviour
 {
     private Bullet.SENDER SENDER = Bullet.SENDER.ENEMY;
 
-    public void Shoot(string tag,Transform muzzleTransform,int pattern)
+    public void Shoot(string tag,Transform muzzleTransform,int pattern,bool up)
     {
         SoundManager.Instance.Play("Shoot");
-        if (pattern == 0) pattern0(tag, muzzleTransform);
+        if (pattern == 0) pattern0(tag, muzzleTransform,up);
         else if (pattern == 1) pattern1(tag, muzzleTransform);
     }
 
-    private void pattern0(string tag, Transform muzzleTransform)
+    private void pattern0(string tag, Transform muzzleTransform,bool up)
     {
         
             Bullet newBullet = createBullet(tag, muzzleTransform.position, muzzleTransform.transform.rotation) ;
             newBullet.setSender(SENDER);
             newBullet.setDamage(GetComponent<Ship>().getDamage());
             newBullet.setBulletSpeed(GetComponent<Ship>().getBulletSpeed());
+
+        if (newBullet.GetComponent<Helix>()) newBullet.GetComponent<Helix>().up = up; 
 
     }
 

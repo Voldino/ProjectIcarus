@@ -38,6 +38,12 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 1.0f; 
     }
 
+    public void BackToCantina()
+    {
+        Play(); 
+        TransitionManager.instance.Sc_Cantina();
+    }
+
     public void ExitGame()
     {
         Application.Quit();

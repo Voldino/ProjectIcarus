@@ -6,6 +6,7 @@ public class GunController : MonoBehaviour
 {
     [SerializeField] private Transform muzzleTransform;
     [SerializeField] private List<string> tags;
+    public bool up; 
 
     private float delayTime ;
     private float countTime = 0;
@@ -33,7 +34,7 @@ public class GunController : MonoBehaviour
     {
         if (tags.Count > 0 && countTime >= delayTime)
         {
-            GetComponent<Gun>().Shoot(tags[GetComponent<Ship>().getCurrentBullet()], muzzleTransform, GetComponent<Ship>().getPattern());
+            GetComponent<Gun>().Shoot(tags[GetComponent<Ship>().getCurrentBullet()], muzzleTransform, GetComponent<Ship>().getPattern(),up);
             countTime = 0;
         }
     }
@@ -43,14 +44,14 @@ public class GunController : MonoBehaviour
         if (tags.Count > 0 && countTime >= delayTime)
         {
             GetComponent<Gun>().setSender(SENDER);
-            GetComponent<Gun>().Shoot(tags[GetComponent<Ship>().getCurrentBullet()], muzzleTransform, GetComponent<Ship>().getPattern());
+            GetComponent<Gun>().Shoot(tags[GetComponent<Ship>().getCurrentBullet()], muzzleTransform, GetComponent<Ship>().getPattern(),up);
             countTime = 0;
         }
     }
 
     public void Shoot(string tag)
     {
-        GetComponent<Gun>().Shoot(tag, muzzleTransform,pattern); 
+        GetComponent<Gun>().Shoot(tag, muzzleTransform,pattern,up); 
     }
 
     public void setPattern(int pattern)
