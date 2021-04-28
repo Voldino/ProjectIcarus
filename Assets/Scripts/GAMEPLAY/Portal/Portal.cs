@@ -22,6 +22,7 @@ public class Portal : MonoBehaviour
     {
         if (collision.GetComponent<PlayerController>())
         {
+            SoundManager.Instance.Play("Portal");
             GameObject.FindObjectOfType<SpawnerManager>().nextPhase(1);
             collision.gameObject.transform.position = startPoint; 
             gameObject.SetActive(false); 
