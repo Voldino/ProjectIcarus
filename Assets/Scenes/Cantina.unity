@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1261,6 +1261,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UnlockHomingMissile
       objectReference: {fileID: 0}
+    - target: {fileID: 7728601267383656455, guid: 457f60142926f174c846c70a07ba056f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6bb1dead7c4fdd142936c2044942f689,
+        type: 3}
     - target: {fileID: 7728601267383656472, guid: 457f60142926f174c846c70a07ba056f,
         type: 3}
       propertyPath: m_IsActive
@@ -1416,6 +1422,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: IncreaseHP
       objectReference: {fileID: 0}
+    - target: {fileID: 7728601268674060132, guid: 457f60142926f174c846c70a07ba056f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6bb1dead7c4fdd142936c2044942f689,
+        type: 3}
     - target: {fileID: 7728601268674060135, guid: 457f60142926f174c846c70a07ba056f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1529,6 +1541,34 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 585487608}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &585487623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585487609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1febd73cebda4f847b1e909dd04830e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlocked_sprite: {fileID: 21300000, guid: decf40b2c625fd54294846ea6b67c45a, type: 3}
+  tag: HomingMissile
+--- !u!114 &585487630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585487610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1febd73cebda4f847b1e909dd04830e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlocked_sprite: {fileID: 21300000, guid: decf40b2c625fd54294846ea6b67c45a, type: 3}
+  tag: Quintuple
 --- !u!1 &601931210
 GameObject:
   m_ObjectHideFlags: 0

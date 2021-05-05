@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnlcokAnimation : MonoBehaviour
 {
@@ -13,20 +14,20 @@ public class UnlcokAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (unlocked_sprite != GetComponent<SpriteRenderer>().sprite)
+        if (unlocked_sprite != GetComponent<Image>().sprite)
         {
             if (tag == "HomingMissile")
             {
                 if (DatabaseManager.instance.database.HomingMissile)
                 {
-                    GetComponent<SpriteRenderer>().sprite = unlocked_sprite;
+                    GetComponent<Image>().sprite = unlocked_sprite;
                 }
             }
             else if (tag == "Quintuple")
             {
                 if (DatabaseManager.instance.database.QuintupleGun)
                 {
-                    GetComponent<SpriteRenderer>().sprite = unlocked_sprite; 
+                    GetComponent<Image>().sprite = unlocked_sprite; 
                 }
             }
         }
