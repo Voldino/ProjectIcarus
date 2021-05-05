@@ -36,7 +36,7 @@ public class Ship : MonoBehaviour, HitableObejct
             FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().number_of_boss -= 1;
             DatabaseManager.instance.database.money += 10;
         }
-        else if (gameObject.GetComponent<Enemy_Controller>()) SpawnerManager.activeShip.Remove(this.gameObject);
+        else if (gameObject.GetComponent<Enemy_Controller>()) FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip.Remove(this.gameObject);
 
          FindObjectOfType<CameraShake>().Shake(0.25f, 0.25f);
 

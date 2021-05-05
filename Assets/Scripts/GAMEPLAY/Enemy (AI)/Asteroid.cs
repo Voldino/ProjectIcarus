@@ -46,7 +46,7 @@ public class Asteroid : MonoBehaviour, HitableObejct
     }
 
     private void DestroyAsteroid(){
-        SpawnerManager.activeShip.Remove(this.gameObject);
+        FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip.Remove(this.gameObject);
 
         Destroy(gameObject);
         FindObjectOfType<CameraShake>().Shake(0.25f, 1);

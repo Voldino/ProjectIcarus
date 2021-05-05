@@ -7,6 +7,7 @@ public class HomingMissle : MonoBehaviour
     public static List<int> usedTargetList = null;
     private int usedIndex = -1;
 
+    private int HP = 2; 
     public float speed = 5;
     public float rotatingSpeed = 200;
     public Transform target;
@@ -14,6 +15,7 @@ public class HomingMissle : MonoBehaviour
     public float movementSpeed = 10f;
     static int same = 0;
     private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -22,12 +24,21 @@ public class HomingMissle : MonoBehaviour
             usedTargetList = new List<int>();
         }
         target = getTarget();
+        
         rb = GetComponent<Rigidbody2D>();
 
         same++;
     }
 
+    private void OnDisable()
+    {
+        target = null; 
+    }
 
+    private void OnDestroy()
+    {
+        target = null;
+    }
     void Start()
     {
         if (usedTargetList == null)
@@ -36,7 +47,7 @@ public class HomingMissle : MonoBehaviour
         }
         target = getTarget();
         rb = GetComponent<Rigidbody2D>();
-        print("Same is " + same);
+        //print("Same is " + same);
         same++;
     }
 
@@ -45,6 +56,7 @@ public class HomingMissle : MonoBehaviour
     {
         newTarget();
         move();
+        if (target && gameObject.activeSelf) print("there is a target");
         //print(usedTargetList.Count);
     }
 
@@ -74,21 +86,28 @@ public class HomingMissle : MonoBehaviour
 
     private Transform getTarget()
     {
-        float shortest = Mathf.Infinity ;
-        Transform _target = null ; 
-        for (int i = 0; i < SpawnerManager.activeShip.Count; i++)
+        Transform _target = null;
+        if (GetComponent<Bullet>().sender == Bullet.SENDER.ENEMY)
         {
-            if (shortest > Vector3.Distance(transform.position, SpawnerManager.activeShip[i].transform.position)) ;
+            GetComponent<SpriteRenderer>().color = Color.green; 
+            _target = FindObjectOfType<Player>().gameObject.transform; 
+            return _target; 
+        }
+
+        float shortest = Mathf.Infinity ;
+        for (int i = 0; i < FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip.Count; i++)
+        {
+            if (shortest > Vector3.Distance(transform.position, FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip[i].transform.position)) ;
             {
-                if (! used(i) || usedTargetList.Count >= SpawnerManager.activeShip.Count)
+                if (! used(i) || usedTargetList.Count >= FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip.Count)
                 {
-                    shortest = Vector3.Distance(transform.position, SpawnerManager.activeShip[i].transform.position);
-                    _target = SpawnerManager.activeShip[i].transform;
+                    shortest = Vector3.Distance(transform.position, FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip[i].transform.position);
+                    _target = FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip[i].transform;
                     usedIndex = i;
                 }
             }
         }
-        if ( _target != null && usedTargetList.Count < SpawnerManager.activeShip.Count) usedTargetList.Add(usedIndex);
+        if ( _target != null && usedTargetList.Count < FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip.Count) usedTargetList.Add(usedIndex);
         return _target ;
     }
 
@@ -100,6 +119,7 @@ public class HomingMissle : MonoBehaviour
         }
         return false;
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -117,6 +137,21 @@ public class HomingMissle : MonoBehaviour
             {
                 usedTargetList.Remove(usedIndex);
             }
+        }
+
+        if (other.GetComponent<Bullet>() && ! other.GetComponent<HomingMissle>())
+        {
+            if (other.GetComponent<Bullet>().sender != GetComponent<Bullet>().sender)
+            {
+                HP--;
+                if (HP <= 0)
+                {
+                    other.gameObject.SetActive(false);
+                    gameObject.SetActive(false);
+                }
+            }
+             
+
         }
 
     }

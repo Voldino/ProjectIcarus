@@ -25,6 +25,6 @@ public class Spawner : MonoBehaviour
             _gun.setDelayTime(_ship.getDaleyTime());
             _gun.setDamage(_ship.getDamage());
         }
-        SpawnerManager.activeShip.Add(newGameObject); 
+        FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip.Add(newGameObject); 
     }
 }

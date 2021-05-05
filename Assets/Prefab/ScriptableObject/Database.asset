@@ -15,9 +15,9 @@ MonoBehaviour:
   FirstTime: 0
   NormalGun: 0
   QuintupleGun: 0
-  HomingMissile: 0
+  HomingMissile: 1
   Attack: 0
   Speed: 0
   HP: 0
-  flightTime: 0
-  money: 0
+  flightTime: 49.053852
+  money: 99999
