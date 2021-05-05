@@ -111,6 +111,7 @@ MonoBehaviour:
   muzzleTransform: {fileID: 0}
   tags:
   - NormalEnemyBullet
+  up: 0
 --- !u!114 &7163198328001973023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,14 +161,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8785934258756478756}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 866538076354111638}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &8785934258756478757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -251,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9187d9401fda54fa28b6203fef8eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notRotate: 0
 --- !u!60 &1770694924340831721
 PolygonCollider2D:
   m_ObjectHideFlags: 0
