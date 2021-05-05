@@ -5,6 +5,10 @@ using UnityEngine;
 public class A : MonoBehaviour
 {
     private float col_damage = 5f;
+    [SerializeField] private GameObject boss;
+    private float currenthealth;
+    private float maxhealth;
+    private BossHealthBar BHB;
 
     private Vector2 goTo;
     private Vector2 moveDirection;
@@ -17,7 +21,16 @@ public class A : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BHB = FindObjectOfType<BossHealthBar>().GetComponent<BossHealthBar>();
+        maxhealth = boss.GetComponent<Ship>().getHP();
+        BHB.SetMaxHealth(maxhealth);
         prepare();
+    }
+
+    private void Update()
+    {
+        currenthealth = boss.GetComponent<Ship>().getHP();
+        BHB.SetHealth(currenthealth);
     }
 
     private void prepare()
