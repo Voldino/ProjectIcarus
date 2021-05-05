@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstTime: 0
   NormalGun: 0
-  QuintupleGun: 0
-  HomingMissile: 1
+  QuintupleGun: 1
+  HomingMissile: 0
   Attack: 0
   Speed: 0
   HP: 0
-  flightTime: 49.053852
-  money: 99999
+  flightTime: 15.278682
+  money: 0
