@@ -16,8 +16,9 @@ public class Ship : MonoBehaviour, HitableObejct
     [HideInInspector] public Transform muzzle;
 
     /*For Helix bullet*/
-    private bool up; 
- 
+    private bool up;
+
+
     private void Update()
     {
         if (HP <= 0) {
