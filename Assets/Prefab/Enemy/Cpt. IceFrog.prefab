@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7046052048960184545}
   - component: {fileID: 4713187545946698721}
-  - component: {fileID: 6829479094461363292}
+  - component: {fileID: 3813498862943344270}
   m_Layer: 5
   m_Name: BHB
   m_TagString: Untagged
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6829479094461363292
+--- !u!114 &3813498862943344270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4743566151035093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b29a7d0ff70f04dbb83cb9af9b83a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ad7501e31605734bb471db363a3ebda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 4713187545946698721}
