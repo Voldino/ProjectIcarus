@@ -54,7 +54,6 @@ public class HomingMissle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        newTarget();
         move();
         if (target && gameObject.activeSelf) print("there is a target");
         //print(usedTargetList.Count);
@@ -107,7 +106,8 @@ public class HomingMissle : MonoBehaviour
                 }
             }
         }
-        if ( _target != null && usedTargetList.Count < FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip.Count) usedTargetList.Add(usedIndex);
+        print("shortest is" + shortest);
+        if ( _target != null  && shortest < 60.00f && usedTargetList.Count < FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip.Count) usedTargetList.Add(usedIndex);
         return _target ;
     }
 

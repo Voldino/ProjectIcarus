@@ -46,12 +46,21 @@ public class PlayerController : MonoBehaviour
         //Swap Weapon 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            GetComponent<Ship>().setDaleyTime(0.1f); 
             GetComponent<Ship>().setPattern(0);
+            GetComponent<Ship>().setCurrentBullet(0);
+
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (DatabaseManager.instance.database.playerWeaponUpgrade("QuintupleGun")) GetComponent<Ship>().setPattern(1);
+            if (DatabaseManager.instance.database.playerWeaponUpgrade("QuintupleGun"))
+            {
+                GetComponent<Ship>().setDaleyTime(0.2f);
+                Ship ship = GetComponent<Ship>(); 
+                ship.setPattern(1);
+                ship.setCurrentBullet(0); 
+            }
             else print("Second Weapon is unavailable");
         }
 
@@ -59,7 +68,8 @@ public class PlayerController : MonoBehaviour
         {
             if (DatabaseManager.instance.database.playerWeaponUpgrade("HomingMissile")) 
             {
-                   Ship ship = GetComponent<Ship>();
+                GetComponent<Ship>().setDaleyTime(0.05f);
+                Ship ship = GetComponent<Ship>();
                    ship.setPattern(0);
                    GetComponent<Ship>().setCurrentBullet(1);
             }
