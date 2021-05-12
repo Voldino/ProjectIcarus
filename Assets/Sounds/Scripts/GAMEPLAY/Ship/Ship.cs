@@ -35,6 +35,7 @@ public class Ship : MonoBehaviour, HitableObejct
         else if (GetComponent<A>())
         {
             FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().number_of_boss -= 1;
+            FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().openPortal();
             DatabaseManager.instance.database.money += 10;
         }
         else if (gameObject.GetComponent<Enemy_Controller>()) FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().activeShip.Remove(this.gameObject);
