@@ -15,7 +15,7 @@ public class Portal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (FindObjectOfType<SpawnerManager>().GetComponent<SpawnerManager>().Phase == 4) gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
