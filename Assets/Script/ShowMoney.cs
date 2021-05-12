@@ -12,6 +12,7 @@ public class ShowMoney : MonoBehaviour
 
     private void Update()
     {
-        t.text = "Money : " + DatabaseManager.instance.database.money; 
+        t.text = "Money\t\t\t\t\t : " + DatabaseManager.instance.database.money + "\n" + "FlightTime\t\t : " + (int)DatabaseManager.instance.database.flightTime + "\n" + "Attack\t\t\t\t\t : " + DatabaseManager.instance.database.Attack + "\n" + "HP\t\t\t\t\t\t\t\t : " + DatabaseManager.instance.database.HP + "\n" + "Speed\t\t\t\t\t : " + DatabaseManager.instance.database.Speed + "\n";
+        
     }
 }
