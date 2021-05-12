@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 8345941263150564982}
   - component: {fileID: 3662398124957912903}
   m_Layer: 0
-  m_Name: Boss
+  m_Name: P. Pigion
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8b6799be5e48f448b4c625f1a6db42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 300
+  HP: 120
   Arrmor: 0
   Speed: 1
   pattern: -1
@@ -678,7 +678,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Boss
+  m_Text: P. Pigion
 --- !u!1 &5878893073150775453
 GameObject:
   m_ObjectHideFlags: 0

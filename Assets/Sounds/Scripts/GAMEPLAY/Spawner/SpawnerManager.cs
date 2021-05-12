@@ -42,7 +42,7 @@ public class SpawnerManager : MonoBehaviour
         spawnCountDown += 1 * Time.deltaTime;
         spawnPortalIn += 1 * Time.deltaTime ; 
         spawn();
-        if (spawnPortalIn >= 300 && number_of_boss <= 0)
+        if (spawnPortalIn >= 90 && number_of_boss <= 0)
         {
             spawnPortalIn = -99999999999f;
             openPortal();

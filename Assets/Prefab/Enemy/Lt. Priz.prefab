@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5536929381637946859}
   - component: {fileID: 1559798706}
   m_Layer: 0
-  m_Name: A
+  m_Name: Lt. Priz
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8b6799be5e48f448b4c625f1a6db42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 300
+  HP: 80
   Arrmor: 0
   Speed: 0.15
   pattern: -1
@@ -263,7 +263,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A
+  m_Text: Lt. Priz
 --- !u!1 &3017719441467633130
 GameObject:
   m_ObjectHideFlags: 0

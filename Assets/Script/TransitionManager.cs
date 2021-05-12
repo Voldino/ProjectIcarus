@@ -33,16 +33,16 @@ public class TransitionManager : MonoBehaviour
 
     public void Sc_MainMenu()
     {
-        StartCoroutine(LoadThisSc(0));
+        StartCoroutine(LoadThisSc(1));
     }
 
     public void Sc_Cantina()
     {
-        StartCoroutine(LoadThisSc(1));
+        StartCoroutine(LoadThisSc(2));
     }
 
     public void Sc_GamePlay()
     {
-        StartCoroutine(LoadThisSc(2));
+        StartCoroutine(LoadThisSc(3));
     }
 }

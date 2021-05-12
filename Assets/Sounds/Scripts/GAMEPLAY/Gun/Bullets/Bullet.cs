@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour
 
     void DestroyBullet(GameObject hitObj)
     {
-        if (GetComponent<HomingMissle>()) Damage /= 4; 
         hitObj.GetComponent<HitableObejct>().Hit(Damage); 
 
         gameObject.SetActive(false) ; 
