@@ -47,11 +47,7 @@ public class SpawnerManager : MonoBehaviour
             spawnPortalIn = -99999999999f;
             openPortal();
         }
-        else if (Input.GetKeyDown(KeyCode.P) )
-        {
-            spawnPortalIn = -99999999999f;
-            openPortal();
-        }
+
     }
 
  

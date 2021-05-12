@@ -75,15 +75,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyDown(KeyCode.I))
-        {
-            GetComponent<Ship>().setDamage(99999);
-        }
-
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            DatabaseManager.instance.database.money += 1000;
-        }
  
     }
     private void FixedUpdate()
